@@ -1,0 +1,297 @@
+:root {
+  color-scheme: dark;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  color: #f2f5f7;
+  background: #05070b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --accent: #00e8f2;
+  --muted: #9099a6;
+  --line: rgba(255, 255, 255, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #05070b;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 82% 48%, rgba(0, 232, 242, 0.08), transparent 28rem),
+    #05070b;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+.site-shell {
+  width: min(100% - 48px, 1440px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  color: #05070b;
+  background: var(--accent);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header {
+  min-height: 88px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-lockup {
+  width: 220px;
+  height: auto;
+}
+
+.company-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-status > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(0, 232, 242, 0.55);
+}
+
+.company-status div {
+  display: grid;
+  gap: 2px;
+}
+
+.company-status small,
+.eyebrow,
+.site-footer {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.company-status small {
+  color: var(--muted);
+}
+
+.company-status strong {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.85fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 112px);
+  min-height: calc(100dvh - 154px);
+  padding: clamp(48px, 7vh, 88px) 0;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin-bottom: 24px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+h1 {
+  max-width: 11ch;
+  font-size: clamp(4.2rem, 7.4vw, 7.6rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.lede {
+  max-width: 43rem;
+  margin-top: 34px;
+  color: #b8c0c9;
+  font-size: clamp(1.12rem, 1.45vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.mark-stage {
+  position: relative;
+  min-height: clamp(330px, 43vw, 590px);
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border-left: 1px solid var(--line);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+}
+
+.mark-stage::before,
+.mark-stage::after {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-color: var(--accent);
+  opacity: 0.7;
+}
+
+.mark-stage::before {
+  top: 0;
+  right: 0;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.mark-stage::after {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.mark-stage img {
+  width: min(88%, 520px);
+  filter: drop-shadow(0 26px 70px rgba(0, 124, 255, 0.2));
+}
+
+.site-footer {
+  min-height: 66px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .site-shell {
+    width: min(100% - 32px, 720px);
+  }
+
+  .brand-lockup {
+    width: 190px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    min-height: auto;
+    padding: 56px 0 44px;
+  }
+
+  h1 {
+    font-size: clamp(3.6rem, 13.5vw, 6.5rem);
+  }
+
+  .mark-stage {
+    min-height: 260px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .mark-stage img {
+    width: min(72%, 390px);
+  }
+}
+
+@media (max-width: 560px) {
+  .site-shell {
+    width: min(100% - 28px, 480px);
+  }
+
+  .site-header {
+    min-height: 78px;
+    gap: 18px;
+  }
+
+  .brand-lockup {
+    width: 166px;
+  }
+
+  .company-status {
+    gap: 8px;
+  }
+
+  .company-status small {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .company-status strong {
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    gap: 38px;
+    padding: 48px 0 38px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    max-width: 10ch;
+    font-size: clamp(3.35rem, 15.5vw, 4.85rem);
+    line-height: 0.98;
+  }
+
+  .lede {
+    margin-top: 26px;
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+
+  .mark-stage {
+    min-height: 220px;
+    background-size: 36px 36px;
+  }
+
+  .site-footer {
+    min-height: 76px;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 0;
+    font-size: 0.65rem;
+  }
+
+  .site-footer p:last-child {
+    text-align: right;
+  }
+}

@@ -81,12 +81,12 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section frame founder-section" aria-labelledby="founder-title">
-          <p className="eyebrow">WHY PHASELABS EXISTS</p>
+        <section className="section frame evolution-section" aria-labelledby="evolution-title">
+          <p className="eyebrow">AS YOUR VENTURE EVOLVES</p>
           <div>
-            <h2 id="founder-title">The hard questions deserve<br /><span>an earlier start.</span></h2>
-            <p className="founder-question">Who needs this? What would they pay for? What must be true for it to work?</p>
-            <p className="founder-story">It’s easy to start building before those questions have good answers. PhaseLabs is being developed to bring them forward—connecting evidence, decisions and practical next steps so founders can judge what deserves their time, money and effort.</p>
+            <h2 id="evolution-title">Keep the reasoning.<br /><span>Revisit the decision.</span></h2>
+            <p className="evolution-example">A customer conversation challenges your pricing. A technical constraint changes the plan. An experiment shows the problem lies elsewhere.</p>
+            <p className="evolution-story">We’re developing the venture playbook to connect new evidence with earlier decisions—preserving why you made them and helping you see what needs another look. As you learn, you can revise the plan without losing the reasoning behind it.</p>
           </div>
         </section>
 

@@ -83,10 +83,10 @@ h1 > span { color: var(--cyan); }
 .playbook li::before { content: '0' counter(chapters); position: absolute; left: 0; top: 27px; font-size: 11px; color: var(--cyan); }
 .playbook strong { display: block; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .playbook li span { display: block; margin-top: 6px; color: var(--body); font-size: 14px; line-height: 1.7; }
-.founder-section { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: 55px; }
-.founder-section > .eyebrow { padding-top: 8px; }
-.founder-question { margin-top: 27px; max-width: 720px; font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.6; }
-.founder-story { margin-top: 18px; max-width: 720px; font-size: 18px; color: var(--body); line-height: 1.85; }
+.evolution-section { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: 55px; }
+.evolution-section > .eyebrow { padding-top: 8px; }
+.evolution-example { margin-top: 27px; max-width: 720px; font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.6; }
+.evolution-story { margin-top: 18px; max-width: 720px; font-size: 18px; color: var(--body); line-height: 1.85; }
 .closing { text-align: center; padding-block: 90px; }
 .closing h2 { margin-top: 18px; }
 .closing > p:not(.eyebrow):not(.availability) { max-width: 610px; margin: 25px auto 0; font-size: 17px; line-height: 1.8; color: var(--body); }
@@ -106,7 +106,7 @@ h1 > span { color: var(--cyan); }
   .review-card { max-width: 600px; width: 100%; }
   .question-grid { grid-template-columns: 1fr; }
   .question-card h3 { margin-top: 18px; }
-  .desk-section, .founder-section { grid-template-columns: 1fr; gap: 30px; }
+  .desk-section, .evolution-section { grid-template-columns: 1fr; gap: 30px; }
   .section, .closing { padding-block: 60px; }
   .site-footer { flex-wrap: wrap; }
   .header-link { display: none; }

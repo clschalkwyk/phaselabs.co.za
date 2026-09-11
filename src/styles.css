@@ -85,14 +85,11 @@ h1 > span { color: var(--cyan); }
 .playbook li span { display: block; margin-top: 6px; color: var(--body); font-size: 14px; line-height: 1.7; }
 .founder-section { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: 55px; }
 .founder-section > .eyebrow { padding-top: 8px; }
-.founder-story { margin-top: 27px; max-width: 720px; font-size: 18px; color: var(--body); line-height: 1.85; }
-.founder-name { margin-top: 28px; font-size: 15px; }
-.founder-name span { display: block; margin-top: 7px; color: var(--secondary); font-size: 12px; }
+.founder-question { margin-top: 27px; max-width: 720px; font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.6; }
+.founder-story { margin-top: 18px; max-width: 720px; font-size: 18px; color: var(--body); line-height: 1.85; }
 .closing { text-align: center; padding-block: 90px; }
 .closing h2 { margin-top: 18px; }
 .closing > p:not(.eyebrow):not(.availability) { max-width: 610px; margin: 25px auto 0; font-size: 17px; line-height: 1.8; color: var(--body); }
-.button.secondary { background: transparent; color: var(--ink); border-color: #78909a; }
-.button.secondary:hover { background: #294957; border-color: var(--cyan); }
 .site-footer { display: flex; align-items: center; gap: 28px; justify-content: space-between; padding-block: 30px; border-top: 1px solid var(--line); }
 .site-footer img { width: 155px; }
 .site-footer p, .site-footer small { font-size: 11px; line-height: 1.7; color: var(--secondary); }

@@ -82,11 +82,11 @@ export default function App() {
         </section>
 
         <section className="section frame founder-section" aria-labelledby="founder-title">
-          <p className="eyebrow">Why PhaseLabs exists</p>
+          <p className="eyebrow">WHY PHASELABS EXISTS</p>
           <div>
-            <h2 id="founder-title">Built from the other side<br /><span>of the project graveyard.</span></h2>
-            <p className="founder-story">After 24 years building software, I know the pull of a new idea — and how much work can happen before you ask the uncomfortable business questions. PhaseLabs comes from wanting to bring those questions forward.</p>
-            <p className="founder-name">Wikus Schalkwyk <span>Founder, PhaseLabs</span></p>
+            <h2 id="founder-title">The hard questions deserve<br /><span>an earlier start.</span></h2>
+            <p className="founder-question">Who needs this? What would they pay for? What must be true for it to work?</p>
+            <p className="founder-story">It’s easy to start building before those questions have good answers. PhaseLabs is being developed to bring them forward—connecting evidence, decisions and practical next steps so founders can judge what deserves their time, money and effort.</p>
           </div>
         </section>
 
@@ -94,7 +94,6 @@ export default function App() {
           <p className="eyebrow">Coming soon</p>
           <h2 id="closing-title">Your next venture deserves<br /><span>more than a head start.</span></h2>
           <p>We’re building the first version around technical founders working through one software venture. The goal: clearer decisions before more time gets committed.</p>
-          <a className="button secondary" href="https://github.com/clschalkwyk/phaselabs.co.za">Follow development on GitHub <span aria-hidden="true">↗</span></a>
           <p className="availability">No launch date announced. This site will be updated when the first version is ready.</p>
         </section>
       </main>

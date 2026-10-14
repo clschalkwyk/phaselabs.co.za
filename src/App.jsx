@@ -101,7 +101,7 @@ export default function App() {
       <footer className="site-footer frame">
         <img src={logo} alt="PhaseLabs" />
         <p>Expose hard truths. Build what survives.</p>
-        <small>© {new Date().getFullYear()} PhaseLabs</small>
+        <small>© {new Date().getFullYear()} PhaseLabs · Build {import.meta.env.VITE_BUILD_HASH}</small>
       </footer>
     </div>
   );

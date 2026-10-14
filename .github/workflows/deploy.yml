@@ -1,0 +1,63 @@
+name: Deploy PhaseLabs
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish to phaselabs.co.za (otherwise check AWS access only)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: phaselabs-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AWS_REGION: eu-west-1
+      S3_BUCKET: phaselabs.co.za
+      DISTRIBUTION_ID: E1X4CLJ9EE3X8L
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::760751342917:role/phaselabs-github-deploy
+          aws-region: ${{ env.AWS_REGION }}
+          allowed-account-ids: '760751342917'
+          role-duration-seconds: 900
+      - name: Check AWS access
+        run: |
+          aws sts get-caller-identity
+          aws s3api head-bucket --bucket "$S3_BUCKET"
+          aws cloudfront get-distribution --id "$DISTRIBUTION_ID" --query 'Distribution.Id' --output text
+      - name: Publish assets, then HTML
+        if: inputs.publish
+        run: |
+          aws s3 sync dist/assets/ "s3://$S3_BUCKET/assets/" --cache-control 'public,max-age=31536000,immutable'
+          aws s3 cp dist/phaselabs-icon.svg "s3://$S3_BUCKET/phaselabs-icon.svg" --cache-control 'no-cache'
+          aws s3 cp dist/index.html "s3://$S3_BUCKET/index.html" --cache-control 'no-cache,no-store,must-revalidate'
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths / /index.html /phaselabs-icon.svg --query 'Invalidation.Id' --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$invalidation_id"
+      - name: Verify live release
+        if: inputs.publish
+        run: |
+          curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/ -o /tmp/live-index.html
+          cmp dist/index.html /tmp/live-index.html
+          for asset in dist/assets/*; do
+            curl --fail --silent --show-error --retry 3 "https://phaselabs.co.za/assets/$(basename "$asset")" -o /tmp/live-asset
+            cmp "$asset" /tmp/live-asset
+          done

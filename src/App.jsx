@@ -13,7 +13,7 @@ export default function App() {
       <header className="site-header frame">
         <a href="/" aria-label="PhaseLabs home"><img className="brand-logo" src={logo} alt="PhaseLabs" /></a>
         <a className="header-link" href="#what-is-coming">The idea behind it <span aria-hidden="true">↗</span></a>
-        <span className="status"><span aria-hidden="true" />Coming soon</span>
+        <a className="status cardbuddy-nav" href="#cardbuddy">CardBuddy for Android</a>
       </header>
 
       <main id="main">
@@ -88,6 +88,30 @@ export default function App() {
             <p className="evolution-example">A customer conversation challenges your pricing. A technical constraint changes the plan. An experiment shows the problem lies elsewhere.</p>
             <p className="evolution-story">We’re developing the venture playbook to connect new evidence with earlier decisions—preserving why you made them and helping you see what needs another look. As you learn, you can revise the plan without losing the reasoning behind it.</p>
           </div>
+        </section>
+
+        <section className="section frame cardbuddy-section" id="cardbuddy" aria-labelledby="cardbuddy-title">
+          <div className="cardbuddy-copy">
+            <h2 id="cardbuddy-title">CardBuddy.<br /><span>Make the introduction count.</span></h2>
+            <p>Your business card, ready when the conversation starts. Create cards for different roles, make them your own with custom backgrounds, and share your details with a scannable QR code.</p>
+            <ul className="cardbuddy-features">
+              <li>Choose a layout and position your text and QR code.</li>
+              <li>Open your card instantly from a home-screen widget.</li>
+              <li>Share a card as an image or PDF, including through WhatsApp.</li>
+            </ul>
+            <a className="button" href="/assets/cardbuddy-1.0-1.apk" download="cardbuddy-1.0-1.apk">Download CardBuddy for Android</a>
+            <p className="availability">Version 1.0 · Android 7.0 or later · 11.3 MB APK</p>
+            <a className="checksum-link" href="/assets/cardbuddy-1.0-1.apk.sha256" download>Download SHA-256 checksum</a>
+          </div>
+          <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
+            <h3 id="cardbuddy-install-title">From download to introduction.</h3>
+            <ol>
+              <li><strong>Install on your Android phone.</strong><span>Download the APK and open it. If Android asks, allow installation from your browser, then follow the installation prompts.</span></li>
+              <li><strong>Add your details.</strong><span>Start with a blank card. Add your contact details, links, and a background that fits your business.</span></li>
+              <li><strong>Keep it within reach.</strong><span>Add the CardBuddy widget to your home screen, then tap it whenever you need to share your card.</span></li>
+            </ol>
+            <p className="availability">Direct Android download. To update later, download and install the newer version from this website.</p>
+          </aside>
         </section>
 
         <section className="closing frame" aria-labelledby="closing-title">

@@ -99,9 +99,9 @@ export default function App() {
               <li>Open your card instantly from a home-screen widget.</li>
               <li>Share a card as an image or PDF, including through WhatsApp.</li>
             </ul>
-            <a className="button" href="/assets/cardbuddy-1.0-1.apk" download="cardbuddy-1.0-1.apk">Download CardBuddy for Android</a>
-            <p className="availability">Version 1.0 · Android 7.0 or later · 11.3 MB APK</p>
-            <a className="checksum-link" href="/assets/cardbuddy-1.0-1.apk.sha256" download>Download SHA-256 checksum</a>
+            <a className="button" href="/assets/cardbuddy-1.9-10.apk" download="cardbuddy-1.9-10.apk">Download CardBuddy for Android</a>
+            <p className="availability">Version 1.9 · Android 7.0 or later · 11.3 MB APK</p>
+            <a className="checksum-link" href="/assets/cardbuddy-1.9-10.apk.sha256" download>Download SHA-256 checksum</a>
           </div>
           <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
             <h3 id="cardbuddy-install-title">From download to introduction.</h3>

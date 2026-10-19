@@ -146,3 +146,48 @@ h1 > span { color: var(--cyan); }
 .cardbuddy-nav { text-decoration: none; }
 @media (max-width: 800px) { .cardbuddy-section { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 420px) { .cardbuddy-nav { white-space: normal; max-width: 130px; } .cardbuddy-install { padding: 24px; } }
+
+.cardbuddy-docs { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 70px; border-top: 1px solid var(--line); }
+.cardbuddy-docs > div > p:not(.eyebrow):not(.availability) { max-width: 62ch; margin-top: 24px; color: var(--body); font-size: 17px; line-height: 1.8; }
+.cardbuddy-docs ul { padding: 24px 0 0 22px; margin: 0; color: var(--body); line-height: 1.8; }
+.cardbuddy-docs li + li { margin-top: 18px; }
+.guide-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 70px; padding-block: 60px 90px; align-items: start; }
+.guide-toc { position: sticky; top: 24px; display: grid; gap: 12px; }
+.guide-toc .eyebrow { margin-bottom: 8px; }
+.guide-toc a { font-size: 14px; line-height: 1.5; color: var(--body); text-decoration: none; }
+.guide-toc a:hover, .guide-content a:hover { color: var(--cyan); }
+.guide-content { min-width: 0; max-width: 850px; color: var(--body); font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
+.guide-content h1 { color: var(--ink); margin: 12px 0 24px; }
+.guide-content h2 { color: var(--ink); margin: 64px 0 20px; font-size: clamp(25px, 3vw, 34px); line-height: 1.25; scroll-margin-top: 24px; }
+.guide-content p + p { margin-top: 18px; }
+.guide-content strong { color: var(--ink); }
+.guide-content ul, .guide-content ol { padding-left: 24px; margin: 20px 0; }
+.guide-content li + li { margin-top: 10px; }
+.guide-content a { text-underline-offset: 4px; }
+.guide-content figure { margin: 30px 0 20px; }
+.guide-content figure > a { display: block; width: fit-content; max-width: 100%; }
+.guide-content figure img { width: 300px; max-width: 100%; height: auto; border: 1px solid var(--line); }
+.guide-content figcaption { margin-top: 12px; max-width: 55ch; color: var(--secondary); font-size: 13px; line-height: 1.6; }
+.guide-content code { font-size: .9em; }
+.guide-table { overflow-x: auto; margin: 24px 0; }
+.guide-table table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.guide-table th, .guide-table td { text-align: left; padding: 12px; border: 1px solid var(--line); vertical-align: top; }
+.guide-updated { margin: 48px 0 18px; color: var(--secondary); font-size: 13px; }
+@media (max-width: 800px) {
+  .cardbuddy-docs { grid-template-columns: 1fr; gap: 24px; }
+  .guide-shell .site-header { flex-wrap: wrap; gap: 12px 24px; padding-block: 20px; }
+  .guide-shell .header-link { display: block; margin-left: 0; }
+  .guide-layout { grid-template-columns: 1fr; gap: 40px; padding-top: 32px; }
+  .guide-toc { position: static; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .guide-content h2 { margin-top: 44px; }
+}
+@media print {
+  :root { color-scheme: light; }
+  body, .guide-shell { background: white; color: black; }
+  .guide-shell .site-header, .guide-shell .site-footer, .guide-toc, .skip-link { display: none; }
+  .guide-layout { display: block; width: 100%; padding: 0; }
+  .guide-content, .guide-content h1, .guide-content h2, .guide-content strong, .guide-content figcaption, .guide-updated { color: black; }
+  .guide-content h2 { break-after: avoid; }
+  .guide-content figure { break-inside: avoid; }
+  .guide-content figure img { width: 180px; }
+}

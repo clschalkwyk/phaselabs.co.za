@@ -1,4 +1,5 @@
 import logo from './assets/phaselabs-header-lockup.svg';
+import CardBuddyGuide from './CardBuddyGuide';
 
 const questions = [
   { number: '01', title: 'Does the problem matter?', copy: 'Who feels the pain, what do they do today, and is it important enough to change?' },
@@ -7,6 +8,7 @@ const questions = [
 ];
 
 export default function App() {
+  if (new URLSearchParams(window.location.search).get('guide') === 'cardbuddy') return <CardBuddyGuide />;
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">Skip to content</a>
@@ -102,6 +104,7 @@ export default function App() {
             <a className="button" href="/assets/cardbuddy-1.9-11.apk" download="cardbuddy-1.9-11.apk">Download CardBuddy for Android</a>
             <p className="availability">Version 1.9 · Build 11 · Android 7.0 or later · 11.3 MB APK</p>
             <a className="checksum-link" href="/assets/cardbuddy-1.9-11.apk.sha256" download>Download SHA-256 checksum</a>
+            <p className="availability"><a href="/?guide=cardbuddy">Need a hand? Read the user guide ↗</a></p>
           </div>
           <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
             <h3 id="cardbuddy-install-title">From download to introduction.</h3>
@@ -112,6 +115,22 @@ export default function App() {
             </ol>
             <p className="availability">Direct Android download. To update later, download and install the newer version from this website.</p>
           </aside>
+        </section>
+
+        <section className="section frame cardbuddy-docs" id="cardbuddy-documentation" aria-labelledby="cardbuddy-docs-title">
+          <div>
+            <p className="eyebrow">CardBuddy documentation</p>
+            <h2 id="cardbuddy-docs-title">Make it yours.<br /><span>Keep it ready.</span></h2>
+            <p>Follow the guide to create cards, choose a design, position your details, share a QR code and add a home-screen widget.</p>
+            <a className="button" href="/?guide=cardbuddy">Read the CardBuddy guide <span aria-hidden="true">↗</span></a>
+            <p className="availability">Step-by-step instructions · Guide for version 1.11</p>
+          </div>
+          <ul aria-label="Topics covered in the CardBuddy guide">
+            <li>Details, photos and multiple cards</li>
+            <li>Layouts, colours and background artwork</li>
+            <li>QR codes, image and PDF sharing</li>
+            <li>Widgets, styling reset and troubleshooting</li>
+          </ul>
         </section>
 
         <section className="closing frame" aria-labelledby="closing-title">

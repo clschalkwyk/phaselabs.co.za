@@ -101,6 +101,11 @@ export default function App() {
               <li>Open your card instantly from a home-screen widget.</li>
               <li>Share a card as an image or PDF, including through WhatsApp.</li>
             </ul>
+            <section className="cardbuddy-beta" aria-labelledby="cardbuddy-beta-title">
+              <h3 id="cardbuddy-beta-title">Join the beta test</h3>
+              <p>Add your email to the list to help test the Android app.</p>
+              <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdqrfTO0l3C8P23hK_jlEWmedAw4yn2zRvaL6Ow5FL6Em2ZOw/viewform">Add your email to the list <span aria-hidden="true">↗</span></a>
+            </section>
             <a className="button" href="/assets/cardbuddy-1.9-11.apk" download="cardbuddy-1.9-11.apk">Download CardBuddy for Android</a>
             <p className="availability">Version 1.9 · Build 11 · Android 7.0 or later · 11.3 MB APK</p>
             <a className="checksum-link" href="/assets/cardbuddy-1.9-11.apk.sha256" download>Download SHA-256 checksum</a>

@@ -47,20 +47,21 @@ jobs:
       - name: Publish assets, then HTML
         if: inputs.publish
         run: |
-          aws s3 sync dist/assets/ "s3://$S3_BUCKET/assets/" --cache-control 'public,max-age=31536000,immutable'
+          aws s3 sync dist/assets/ "s3://$S3_BUCKET/assets/" --exclude 'cardbuddy-privacy.html' --cache-control 'public,max-age=31536000,immutable'
           aws s3 cp dist/phaselabs-icon.svg "s3://$S3_BUCKET/phaselabs-icon.svg" --cache-control 'no-cache'
-          aws s3 cp dist/cardbuddy-privacy.html "s3://$S3_BUCKET/cardbuddy-privacy.html" --content-type 'text/html; charset=utf-8' --cache-control 'no-cache,no-store,must-revalidate'
+          aws s3 cp dist/assets/cardbuddy-privacy.html "s3://$S3_BUCKET/assets/cardbuddy-privacy.html" --content-type 'text/html; charset=utf-8' --cache-control 'no-cache,no-store,must-revalidate'
           aws s3 cp dist/index.html "s3://$S3_BUCKET/index.html" --cache-control 'no-cache,no-store,must-revalidate'
-          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths / /index.html /phaselabs-icon.svg /cardbuddy-privacy.html --query 'Invalidation.Id' --output text)
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths / /index.html /phaselabs-icon.svg /assets/cardbuddy-privacy.html --query 'Invalidation.Id' --output text)
           aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$invalidation_id"
       - name: Verify live release
         if: inputs.publish
         run: |
           curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/ -o /tmp/live-index.html
           cmp dist/index.html /tmp/live-index.html
-          curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/cardbuddy-privacy.html -o /tmp/live-privacy.html
-          cmp dist/cardbuddy-privacy.html /tmp/live-privacy.html
+          curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/assets/cardbuddy-privacy.html -o /tmp/live-privacy.html
+          cmp dist/assets/cardbuddy-privacy.html /tmp/live-privacy.html
           for asset in dist/assets/*; do
+            if [ "$(basename "$asset")" = 'cardbuddy-privacy.html' ]; then continue; fi
             curl --fail --silent --show-error --retry 3 "https://phaselabs.co.za/assets/$(basename "$asset")" -o /tmp/live-asset
             cmp "$asset" /tmp/live-asset
           done

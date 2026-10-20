@@ -110,6 +110,7 @@ export default function App() {
             <p className="availability">Version 1.9 · Build 11 · Android 7.0 or later · 11.3 MB APK</p>
             <a className="checksum-link" href="/assets/cardbuddy-1.9-11.apk.sha256" download>Download SHA-256 checksum</a>
             <p className="availability"><a href="/?guide=cardbuddy">Need a hand? Read the user guide ↗</a></p>
+            <p className="availability"><a href="/cardbuddy-privacy.html">CardBuddy privacy policy ↗</a></p>
           </div>
           <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
             <h3 id="cardbuddy-install-title">From download to introduction.</h3>

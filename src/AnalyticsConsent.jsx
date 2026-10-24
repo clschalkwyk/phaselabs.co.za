@@ -5,18 +5,18 @@ export default function AnalyticsConsent() {
   const [choice, setChoice] = useState(readConsent);
   const [open, setOpen] = useState(() => readConsent() === null);
   const preferences = useRef(null);
+  const settings = useRef(null);
   useEffect(() => { applyConsent(choice); }, [choice]);
 
   function choose(value) {
     saveConsent(value);
     setChoice(value);
     setOpen(false);
+    settings.current.close();
     requestAnimationFrame(() => preferences.current?.focus());
   }
 
-  return (
-    <>
-      {open && <aside className="analytics-consent" aria-label="Website analytics preferences">
+  const options = <>
         <div>
           <h2>Help us understand what’s useful.</h2>
           <p>Allow Google Analytics cookies to measure visits and interactions? Analytics stays off unless you accept. No advertising tracking.</p>
@@ -25,10 +25,17 @@ export default function AnalyticsConsent() {
         <div className="analytics-actions">
           <button type="button" onClick={() => choose('denied')}>Reject analytics</button>
           <button type="button" onClick={() => choose('granted')}>Accept analytics</button>
-          {choice !== null && <button type="button" onClick={() => setOpen(false)}>Close</button>}
         </div>
-      </aside>}
-      <button ref={preferences} type="button" className="analytics-preferences" onClick={() => setOpen(true)} aria-expanded={open}>Analytics preferences</button>
+      </>;
+
+  return (
+    <>
+      {open && <aside className="analytics-consent" aria-label="Website analytics preferences">{options}</aside>}
+      <dialog ref={settings} className="analytics-settings" aria-label="Analytics preferences">
+        {options}
+        <button type="button" className="analytics-settings-close" onClick={() => settings.current.close()}>Close</button>
+      </dialog>
+      <button ref={preferences} type="button" className="analytics-preferences" aria-haspopup="dialog" onClick={() => { setOpen(false); settings.current.showModal(); }}>Analytics preferences</button>
     </>
   );
 }

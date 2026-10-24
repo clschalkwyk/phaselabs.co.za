@@ -16,15 +16,19 @@
 }
 * { box-sizing: border-box; }
 .analytics-consent { position: fixed; z-index: 20; inset: auto 20px 55px; margin-inline: auto; max-width: 1000px; padding: 24px; display: flex; align-items: center; gap: 28px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 12px 40px #07141d80; }
-.analytics-consent h2 { font-size: 20px; font-weight: 500; line-height: 1.3; }
-.analytics-consent p { margin-top: 10px; font-size: 13px; line-height: 1.6; color: var(--body); }
-.analytics-consent details { margin-top: 12px; font-size: 12px; color: var(--body); }
-.analytics-consent summary { cursor: pointer; }
+.analytics-consent h2, .analytics-settings h2 { font-size: 20px; font-weight: 500; line-height: 1.3; }
+.analytics-consent p, .analytics-settings p { margin-top: 10px; font-size: 13px; line-height: 1.6; color: var(--body); }
+.analytics-consent details, .analytics-settings details { margin-top: 12px; font-size: 12px; color: var(--body); }
+.analytics-consent summary, .analytics-settings summary { cursor: pointer; }
 .analytics-actions { display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; max-width: 310px; }
-.analytics-actions button, .analytics-preferences { border: 1px solid var(--line); background: var(--canvas); color: var(--ink); font: inherit; font-size: 12px; padding: 12px 16px; cursor: pointer; }
+.analytics-actions button, .analytics-preferences, .analytics-settings-close { border: 1px solid var(--line); background: var(--canvas); color: var(--ink); font: inherit; font-size: 12px; padding: 12px 16px; cursor: pointer; }
 .analytics-preferences { position: fixed; z-index: 21; bottom: 10px; left: 20px; padding: 8px 12px; }
 .analytics-actions button:hover, .analytics-preferences:hover { border-color: var(--cyan); }
-.analytics-actions button:focus-visible, .analytics-preferences:focus-visible, .analytics-consent summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.analytics-actions button:focus-visible, .analytics-preferences:focus-visible, .analytics-settings-close:focus-visible, .analytics-consent summary:focus-visible, .analytics-settings summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.analytics-settings { width: min(600px, calc(100% - 32px)); max-height: 85vh; overflow-y: auto; padding: 28px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.analytics-settings::backdrop { background: #07141dbb; }
+.analytics-settings .analytics-actions { margin-top: 22px; max-width: none; }
+.analytics-settings-close { margin-top: 12px; }
 @media (max-width: 700px) { .analytics-consent { inset-inline: 12px; padding: 18px; flex-direction: column; align-items: stretch; gap: 16px; max-height: 70vh; overflow-y: auto; } .analytics-actions { max-width: none; } }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--canvas); }

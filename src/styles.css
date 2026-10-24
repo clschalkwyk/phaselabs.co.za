@@ -36,6 +36,18 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 6px; }
 .status { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #6b8590; padding: 9px 12px; font-size: 12px; white-space: nowrap; color: var(--ink); }
 .status > span { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; }
 .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr); gap: 64px; align-items: center; padding-block: 100px 108px; }
+.hero-visual { min-width: 0; }
+.hero-copy { align-self: start; }
+.signal-loading { height: 303px; }
+.signal-field { margin: -60px -35px 28px; }
+.signal-canvas { height: 300px; overflow: hidden; }
+.signal-canvas canvas { display: block; width: 100%; height: 100%; }
+.signal-field figcaption { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-inline: 35px; color: var(--secondary); font-size: 11px; }
+.signal-field button { background: transparent; border: 1px solid var(--line); color: var(--ink); font: inherit; padding: 9px 12px; cursor: pointer; }
+.signal-field button:hover { border-color: var(--cyan); color: var(--cyan); }
+.signal-field button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.signal-note { font-size: 10px; }
+@media (max-width: 800px) { .signal-field { margin: 0 0 28px; } .signal-field figcaption { margin-inline: 0; } .signal-canvas { height: 270px; } }
 .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 600; line-height: 1.6; letter-spacing: 0.16em; text-transform: uppercase; }
 h1 { font-size: clamp(48px, 5.5vw, 78px); font-weight: 400; line-height: 1.04; letter-spacing: -0.055em; margin-top: 23px; }
 h1 > span { color: var(--cyan); }

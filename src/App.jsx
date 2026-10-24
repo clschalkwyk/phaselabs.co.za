@@ -1,5 +1,8 @@
 import logo from './assets/phaselabs-header-lockup.svg';
 import CardBuddyGuide from './CardBuddyGuide';
+import { lazy, Suspense } from 'react';
+
+const SignalField = lazy(() => import('./SignalField'));
 
 const questions = [
   { number: '01', title: 'Does the problem matter?', copy: 'Who feels the pain, what do they do today, and is it important enough to change?' },
@@ -29,6 +32,8 @@ export default function App() {
             <p className="availability">In development. Venture submissions are not open yet.</p>
           </div>
 
+          <div className="hero-visual">
+          <Suspense fallback={<div className="signal-loading" aria-hidden="true" />}><SignalField /></Suspense>
           <aside className="review-card" aria-labelledby="review-title">
             <div className="card-bar"><span>The venture desk</span><span>Illustrative example</span></div>
             <div className="review-body">
@@ -43,6 +48,7 @@ export default function App() {
               <p className="review-footnote">An example of the thinking we’re building for. No live assessment has been run.</p>
             </div>
           </aside>
+          </div>
         </section>
 
         <div className="statement-strip"><p className="frame">Expose hard truths. <span>Build what survives.</span></p></div>

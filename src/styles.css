@@ -172,8 +172,7 @@ h1 > span { color: var(--cyan); }
 .cardbuddy-install li + li { margin-top: 24px; }
 .cardbuddy-install strong, .cardbuddy-install li span { display: block; color: var(--ink); font-size: 15px; line-height: 1.7; }
 .cardbuddy-install li span { margin-top: 6px; color: var(--body); font-size: 14px; }
-.checksum-link { display: inline-block; margin-top: 12px; color: var(--secondary); font-size: 12px; line-height: 1.7; text-underline-offset: 4px; }
-.checksum-link:hover, .cardbuddy-nav:hover { color: var(--cyan); }
+.cardbuddy-nav:hover { color: var(--cyan); }
 .cardbuddy-nav { text-decoration: none; }
 @media (max-width: 800px) { .cardbuddy-section { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 420px) { .cardbuddy-nav { white-space: normal; max-width: 130px; } .cardbuddy-install { padding: 24px; } }

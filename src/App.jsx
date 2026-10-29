@@ -109,23 +109,22 @@ export default function App() {
             </ul>
             <section className="cardbuddy-beta" aria-labelledby="cardbuddy-beta-title">
               <h3 id="cardbuddy-beta-title">Join the beta test</h3>
-              <p>Add your email to the list to help test the Android app.</p>
-              <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdqrfTO0l3C8P23hK_jlEWmedAw4yn2zRvaL6Ow5FL6Em2ZOw/viewform">Add your email to the list <span aria-hidden="true">↗</span></a>
+              <p>Help us test CardBuddy through Google Play. Add your Google Play email to request access, then join the closed test once your email has been added and the test is available.</p>
+              <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdqrfTO0l3C8P23hK_jlEWmedAw4yn2zRvaL6Ow5FL6Em2ZOw/viewform">Request tester access <span aria-hidden="true">↗</span></a>
+              <p className="availability"><a href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy">Join the closed test on Google Play ↗</a></p>
+              <p>Test version: updates may cause loss of saved cards or images. Use test data, keep copies of important details and images elsewhere, and do not uninstall or clear app storage to update.</p>
             </section>
-            <a className="button" href="/assets/cardbuddy-1.9-11.apk" download="cardbuddy-1.9-11.apk">Download CardBuddy for Android</a>
-            <p className="availability">Version 1.9 · Build 11 · Android 7.0 or later · 11.3 MB APK</p>
-            <a className="checksum-link" href="/assets/cardbuddy-1.9-11.apk.sha256" download>Download SHA-256 checksum</a>
             <p className="availability"><a href="/?guide=cardbuddy">Need a hand? Read the user guide ↗</a></p>
             <p className="availability"><a href="/assets/cardbuddy-privacy.html">CardBuddy privacy policy ↗</a></p>
           </div>
           <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
-            <h3 id="cardbuddy-install-title">From download to introduction.</h3>
+            <h3 id="cardbuddy-install-title">How beta access works.</h3>
             <ol>
-              <li><strong>Install on your Android phone.</strong><span>Download the APK and open it. If Android asks, allow installation from your browser, then follow the installation prompts.</span></li>
-              <li><strong>Add your details.</strong><span>Start with a blank card. Add your contact details, links, and a background that fits your business.</span></li>
-              <li><strong>Keep it within reach.</strong><span>Add the CardBuddy widget to your home screen, then tap it whenever you need to share your card.</span></li>
+              <li><strong>Submit your Google Play email.</strong><span>Use the form to enter the Google account email you use on your Android device.</span></li>
+              <li><strong>Wait for tester access.</strong><span>We’ll add that email to the closed-test list. The Play link works once the test is available and your email is on the list.</span></li>
+              <li><strong>Join and install through Google Play.</strong><span>Open the closed-test link, opt in and install. Stay opted in for at least 14 days to help us qualify for a public release.</span></li>
+              <li><strong>Already an internal tester?</strong><span>Leave the internal test first, then opt into the closed test. Keep your existing installation and data.</span></li>
             </ol>
-            <p className="availability">Direct Android download. To update later, download and install the newer version from this website.</p>
           </aside>
         </section>
 
@@ -135,7 +134,7 @@ export default function App() {
             <h2 id="cardbuddy-docs-title">Make it yours.<br /><span>Keep it ready.</span></h2>
             <p>Follow the guide to create cards, choose a design, position your details, share a QR code and add a home-screen widget.</p>
             <a className="button" href="/?guide=cardbuddy">Read the CardBuddy guide <span aria-hidden="true">↗</span></a>
-            <p className="availability">Step-by-step instructions · Guide for version 1.11</p>
+            <p className="availability">Step-by-step instructions · Guide for version 1.13</p>
           </div>
           <ul aria-label="Topics covered in the CardBuddy guide">
             <li>Details, photos and multiple cards</li>

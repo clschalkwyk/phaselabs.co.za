@@ -96,6 +96,8 @@ h1 > span { color: var(--cyan); }
 .number { color: var(--cyan); font-size: 13px; }
 .question-card h3 { margin-top: 32px; font-size: 21px; font-weight: 500; line-height: 1.3; }
 .question-card p { margin-top: 12px; font-size: 15px; line-height: 1.8; color: var(--body); }
+.lab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lab-project .availability { margin-top: 16px; font-size: 12px; line-height: 1.7; color: var(--secondary); }
 .desk-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 90px; align-items: center; }
 .desk-copy h2 { margin-top: 18px; }
 .desk-copy > p:not(.eyebrow) { margin-top: 22px; color: var(--body); font-size: 16px; line-height: 1.8; }

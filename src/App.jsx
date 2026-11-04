@@ -98,6 +98,28 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section frame" id="from-the-lab" aria-labelledby="lab-title">
+          <div className="section-heading">
+            <p className="eyebrow">Projects in progress</p>
+            <h2 id="lab-title">From the lab</h2>
+            <p>Projects we’re building and testing alongside PhaseLabs.</p>
+          </div>
+          <div className="question-grid lab-grid">
+            <article className="question-card lab-project" aria-labelledby="lab-cardbuddy-title">
+              <span className="number">Closed testing</span>
+              <h3 id="lab-cardbuddy-title">CardBuddy</h3>
+              <p>A digital business card for the moments that start a conversation. Create cards for different roles and share your details with a scannable QR code.</p>
+              <a className="button" href="#cardbuddy">Explore CardBuddy <span aria-hidden="true">↓</span></a>
+            </article>
+            <article className="question-card lab-project" aria-labelledby="lab-stat60-title">
+              <span className="number">In development</span>
+              <h3 id="lab-stat60-title">STAT-60</h3>
+              <p>Exploring clearer handoffs from antimicrobial prescribing through pharmacy to bedside administration. STAT-60 focuses on task ownership, workflow visibility and traceable records.</p>
+              <p className="availability">Not approved for clinical use.</p>
+            </article>
+          </div>
+        </section>
+
         <section className="section frame cardbuddy-section" id="cardbuddy" aria-labelledby="cardbuddy-title">
           <div className="cardbuddy-copy">
             <h2 id="cardbuddy-title">CardBuddy.<br /><span>Make the introduction count.</span></h2>

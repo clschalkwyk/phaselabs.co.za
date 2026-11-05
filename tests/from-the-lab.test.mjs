@@ -26,10 +26,10 @@ before(async () => {
 
 after(async () => { await server?.close(); });
 
-test('the lab overview presents both projects with clear development status', () => {
+test('the lab overview presents all three projects with clear development status', () => {
   assert.ok(lab, 'The homepage includes a From the lab section');
   assert.match(lab, /<h2 id="lab-title">From the lab<\/h2>/);
-  assert.equal((lab.match(/<article /g) || []).length, 2);
+  assert.equal((lab.match(/<article /g) || []).length, 3);
   assert.match(lab, /Closed testing[\s\S]*<h3 id="lab-cardbuddy-title">CardBuddy<\/h3>/);
   assert.match(lab, /In development[\s\S]*<h3 id="lab-stat60-title">STAT-60<\/h3>/);
   assert.match(lab, /Exploring clearer handoffs from antimicrobial prescribing through pharmacy to bedside administration\. STAT-60 focuses on task ownership, workflow visibility and traceable records\./);
@@ -37,11 +37,26 @@ test('the lab overview presents both projects with clear development status', ()
 });
 
 test('the overview reuses CardBuddy details without duplicate signup or invented project links', () => {
-  assert.deepEqual([...lab.matchAll(/href="([^"]+)"/g)].map(match => match[1]), ['#cardbuddy']);
+  assert.deepEqual([...lab.matchAll(/href="([^"]+)"/g)].map(match => match[1]), [
+    '#cardbuddy',
+    'https://w3node.io/node-engine',
+  ]);
   assert.equal((home.match(/id="cardbuddy"/g) || []).length, 1);
   assert.equal((home.match(/>Request tester access /g) || []).length, 1);
   assert.match(home, /id="cardbuddy-documentation"/);
   assert.match(home, /href="\/\?guide=cardbuddy"/);
   assert.match(home, /href="\/assets\/cardbuddy-privacy\.html"/);
   assert.ok(home.indexOf('id="from-the-lab"') < home.indexOf('id="cardbuddy"'));
+});
+
+test('Agent K is a synthetic-data Testnet prototype with an official event link', () => {
+  const agentK = lab.match(/<article[^>]+aria-labelledby="lab-agent-k-title"[^>]*>([\s\S]*?)<\/article>/)?.[1];
+  assert.ok(agentK, 'Agent K has its own labelled project card');
+  assert.match(agentK, /In development/);
+  assert.match(agentK, /<h3 id="lab-agent-k-title">Agent K<\/h3>/);
+  assert.match(agentK, /prototype for W3Node’s Node Engine hackathon/);
+  assert.match(agentK, /exploring how agents could discover raw data, model outputs and research, check usage rights, and make user-approved XRPL Testnet payments/);
+  assert.match(agentK, /Planned testing uses synthetic data\. Testnet only; no live payments\./);
+  assert.match(agentK, /href="https:\/\/w3node\.io\/node-engine"/);
+  assert.doesNotMatch(agentK, /<img\b|<svg\b/, 'No third-party brand assets without confirmed reuse permission');
 });

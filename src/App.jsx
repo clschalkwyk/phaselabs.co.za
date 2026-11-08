@@ -2,6 +2,8 @@ import logo from './assets/phaselabs-header-lockup.svg';
 import CardBuddyGuide from './CardBuddyGuide';
 import { lazy, Suspense } from 'react';
 
+const SambanePage = lazy(() => import('./SambanePage'));
+
 const SignalField = lazy(() => import('./SignalField'));
 
 const questions = [
@@ -11,6 +13,7 @@ const questions = [
 ];
 
 export default function App() {
+  if (new URLSearchParams(window.location.search).get('project') === 'sambane') return <Suspense fallback={<p className="frame" role="status">Loading Sambane…</p>}><SambanePage /></Suspense>;
   if (new URLSearchParams(window.location.search).get('guide') === 'cardbuddy') return <CardBuddyGuide />;
   return (
     <div className="site-shell">
@@ -124,7 +127,7 @@ export default function App() {
               <p>We’re developing an autonomous commerce network where specialist AI brokers discover, subcontract and pay one another within approved budgets, with independently verified payment receipts.</p>
               <p>The first W3Node prototype is designed around voice or text requests for farm supplies, bringing product sourcing and delivery quotes into one proposal.</p>
               <p className="availability">Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending. Supplier offers and delivery outcomes are synthetic. No real goods purchases, real USDT or production lending.</p>
-              <a className="button" href="https://w3node.io/node-engine">W3Node Node Engine <span aria-hidden="true">↗</span></a>
+              <a className="button" href="/?project=sambane">Explore Sambane <span aria-hidden="true">↗</span></a>
             </article>
           </div>
         </section>

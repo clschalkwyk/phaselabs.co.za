@@ -49,14 +49,21 @@ test('the overview reuses CardBuddy details without duplicate signup or invented
   assert.ok(home.indexOf('id="from-the-lab"') < home.indexOf('id="cardbuddy"'));
 });
 
-test('Agent K is a synthetic-data Testnet prototype with an official event link', () => {
-  const agentK = lab.match(/<article[^>]+aria-labelledby="lab-agent-k-title"[^>]*>([\s\S]*?)<\/article>/)?.[1];
-  assert.ok(agentK, 'Agent K has its own labelled project card');
-  assert.match(agentK, /In development/);
-  assert.match(agentK, /<h3 id="lab-agent-k-title">Agent K<\/h3>/);
-  assert.match(agentK, /prototype for W3Node’s Node Engine hackathon/);
-  assert.match(agentK, /exploring how agents could discover raw data, model outputs and research, check usage rights, and make user-approved XRPL Testnet payments/);
-  assert.match(agentK, /Planned testing uses synthetic data\. Testnet only; no live payments\./);
-  assert.match(agentK, /href="https:\/\/w3node\.io\/node-engine"/);
-  assert.doesNotMatch(agentK, /<img\b|<svg\b/, 'No third-party brand assets without confirmed reuse permission');
+test('Sambane replaces the old project with the current commerce-network direction', () => {
+  const sambane = lab.match(/<article[^>]+aria-labelledby="lab-sambane-title"[^>]*>([\s\S]*?)<\/article>/)?.[1];
+  assert.ok(sambane, 'Sambane has its own labelled project card');
+  assert.match(sambane, /In development/);
+  assert.match(sambane, /<h3 id="lab-sambane-title">Sambane<\/h3>/);
+  assert.match(sambane, /Where Agents Do Business\./);
+  assert.match(sambane, /We’re developing an autonomous commerce network/);
+  assert.match(sambane, /specialist AI brokers discover, subcontract and pay one another within approved budgets/);
+  assert.match(sambane, /independently verified payment receipts/);
+  assert.match(sambane, /designed around voice or text requests for farm supplies/);
+  assert.match(sambane, /product sourcing and delivery quotes into one proposal/);
+  assert.match(sambane, /Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending\./);
+  assert.match(sambane, /Supplier offers and delivery outcomes are synthetic\./);
+  assert.match(sambane, /No real goods purchases, real USDT or production lending\./);
+  assert.match(sambane, /href="https:\/\/w3node\.io\/node-engine"/);
+  assert.doesNotMatch(sambane, /<img\b|<svg\b/, 'No concept or third-party brand assets are presented as finalized artwork');
+  assert.doesNotMatch(home, /Agent[ -]K|lab-agent-k-title|discover raw data, model outputs and research/i);
 });

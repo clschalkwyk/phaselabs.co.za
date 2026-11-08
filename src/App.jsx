@@ -117,11 +117,13 @@ export default function App() {
               <p>Exploring clearer handoffs from antimicrobial prescribing through pharmacy to bedside administration. STAT-60 focuses on task ownership, workflow visibility and traceable records.</p>
               <p className="availability">Not approved for clinical use.</p>
             </article>
-            <article className="question-card lab-project" aria-labelledby="lab-agent-k-title">
+            <article className="question-card lab-project" aria-labelledby="lab-sambane-title">
               <span className="number">In development</span>
-              <h3 id="lab-agent-k-title">Agent K</h3>
-              <p>A prototype for W3Node’s Node Engine hackathon, exploring how agents could discover raw data, model outputs and research, check usage rights, and make user-approved XRPL Testnet payments.</p>
-              <p className="availability">Planned testing uses synthetic data. Testnet only; no live payments.</p>
+              <h3 id="lab-sambane-title">Sambane</h3>
+              <p><strong>Where Agents Do Business.</strong></p>
+              <p>We’re developing an autonomous commerce network where specialist AI brokers discover, subcontract and pay one another within approved budgets, with independently verified payment receipts.</p>
+              <p>The first W3Node prototype is designed around voice or text requests for farm supplies, bringing product sourcing and delivery quotes into one proposal.</p>
+              <p className="availability">Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending. Supplier offers and delivery outcomes are synthetic. No real goods purchases, real USDT or production lending.</p>
               <a className="button" href="https://w3node.io/node-engine">W3Node Node Engine <span aria-hidden="true">↗</span></a>
             </article>
           </div>

@@ -33,6 +33,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npm test
       - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
           role-to-assume: arn:aws:iam::760751342917:role/phaselabs-github-deploy
@@ -47,21 +48,28 @@ jobs:
       - name: Publish assets, then HTML
         if: inputs.publish
         run: |
-          aws s3 sync dist/assets/ "s3://$S3_BUCKET/assets/" --exclude 'cardbuddy-privacy.html' --cache-control 'public,max-age=31536000,immutable'
+          aws s3 sync dist/assets/ "s3://$S3_BUCKET/assets/" --exclude '*.html' --exclude 'sitemap.xml' --cache-control 'public,max-age=31536000,immutable'
           aws s3 cp dist/phaselabs-icon.svg "s3://$S3_BUCKET/phaselabs-icon.svg" --cache-control 'no-cache'
-          aws s3 cp dist/assets/cardbuddy-privacy.html "s3://$S3_BUCKET/assets/cardbuddy-privacy.html" --content-type 'text/html; charset=utf-8' --cache-control 'no-cache,no-store,must-revalidate'
+          paths=(/ '/?*' /index.html '/index.html?*' /phaselabs-icon.svg /assets/sitemap.xml)
+          while IFS= read -r -d '' html; do
+            key="${html#dist/}"
+            aws s3 cp "$html" "s3://$S3_BUCKET/$key" --content-type 'text/html; charset=utf-8' --cache-control 'no-cache,no-store,must-revalidate'
+            paths+=("/$key" "/$key?*")
+          done < <(find dist/assets -type f -name '*.html' -print0)
+          aws s3 cp dist/assets/sitemap.xml "s3://$S3_BUCKET/assets/sitemap.xml" --content-type 'application/xml; charset=utf-8' --cache-control 'no-cache,no-store,must-revalidate'
           aws s3 cp dist/index.html "s3://$S3_BUCKET/index.html" --cache-control 'no-cache,no-store,must-revalidate'
-          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths / /index.html /phaselabs-icon.svg /assets/cardbuddy-privacy.html --query 'Invalidation.Id' --output text)
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "${paths[@]}" --query 'Invalidation.Id' --output text)
           aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$invalidation_id"
       - name: Verify live release
         if: inputs.publish
         run: |
           curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/ -o /tmp/live-index.html
           cmp dist/index.html /tmp/live-index.html
-          curl --fail --silent --show-error --retry 3 https://phaselabs.co.za/assets/cardbuddy-privacy.html -o /tmp/live-privacy.html
-          cmp dist/assets/cardbuddy-privacy.html /tmp/live-privacy.html
+          while IFS= read -r legacy_url; do
+            curl --fail --silent --show-error --retry 3 "$legacy_url" -o /tmp/live-legacy.html
+            cmp dist/index.html /tmp/live-legacy.html
+          done < <(node --input-type=module -e 'import { legacyRoutes, siteOrigin } from "./src/pages.js"; for (const path of ["/", "/index.html"]) for (const route of legacyRoutes) console.log(`${siteOrigin}${path}?${route.key}=${route.value}`);')
           for asset in dist/assets/*; do
-            if [ "$(basename "$asset")" = 'cardbuddy-privacy.html' ]; then continue; fi
             curl --fail --silent --show-error --retry 3 "https://phaselabs.co.za/assets/$(basename "$asset")" -o /tmp/live-asset
             cmp "$asset" /tmp/live-asset
           done

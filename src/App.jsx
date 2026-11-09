@@ -1,8 +1,6 @@
 import logo from './assets/phaselabs-header-lockup.svg';
-import CardBuddyGuide from './CardBuddyGuide';
 import { lazy, Suspense } from 'react';
-
-const SambanePage = lazy(() => import('./SambanePage'));
+import { pagePaths } from './pages.js';
 
 const SignalField = lazy(() => import('./SignalField'));
 
@@ -13,8 +11,6 @@ const questions = [
 ];
 
 export default function App() {
-  if (new URLSearchParams(window.location.search).get('project') === 'sambane') return <Suspense fallback={<p className="frame" role="status">Loading Sambane…</p>}><SambanePage /></Suspense>;
-  if (new URLSearchParams(window.location.search).get('guide') === 'cardbuddy') return <CardBuddyGuide />;
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">Skip to content</a>
@@ -127,7 +123,7 @@ export default function App() {
               <p>We’re developing an autonomous commerce network where specialist AI brokers discover, subcontract and pay one another within approved budgets, with independently verified payment receipts.</p>
               <p>The first W3Node prototype is designed around voice or text requests for farm supplies, bringing product sourcing and delivery quotes into one proposal.</p>
               <p className="availability">Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending. Supplier offers and delivery outcomes are synthetic. No real goods purchases, real USDT or production lending.</p>
-              <a className="button" href="/?project=sambane">Explore Sambane <span aria-hidden="true">↗</span></a>
+              <a className="button" href={pagePaths.sambane}>Explore Sambane <span aria-hidden="true">↗</span></a>
             </article>
           </div>
         </section>
@@ -148,7 +144,7 @@ export default function App() {
               <p className="availability"><a href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy">Join the closed test on Google Play ↗</a></p>
               <p>Test version: updates may cause loss of saved cards or images. Use test data, keep copies of important details and images elsewhere, and do not uninstall or clear app storage to update.</p>
             </section>
-            <p className="availability"><a href="/?guide=cardbuddy">Need a hand? Read the user guide ↗</a></p>
+            <p className="availability"><a href={pagePaths.cardbuddyGuide}>Need a hand? Read the user guide ↗</a></p>
             <p className="availability"><a href="/assets/cardbuddy-privacy.html">CardBuddy privacy policy ↗</a></p>
           </div>
           <aside className="cardbuddy-install" aria-labelledby="cardbuddy-install-title">
@@ -167,7 +163,7 @@ export default function App() {
             <p className="eyebrow">CardBuddy documentation</p>
             <h2 id="cardbuddy-docs-title">Make it yours.<br /><span>Keep it ready.</span></h2>
             <p>Follow the guide to create cards, choose a design, position your details, share a QR code and add a home-screen widget.</p>
-            <a className="button" href="/?guide=cardbuddy">Read the CardBuddy guide <span aria-hidden="true">↗</span></a>
+            <a className="button" href={pagePaths.cardbuddyGuide}>Read the CardBuddy guide <span aria-hidden="true">↗</span></a>
             <p className="availability">Step-by-step instructions · Guide for version 1.13</p>
           </div>
           <ul aria-label="Topics covered in the CardBuddy guide">
@@ -189,7 +185,7 @@ export default function App() {
       <footer className="site-footer frame">
         <img src={logo} alt="PhaseLabs" />
         <p>Expose hard truths. Build what survives.</p>
-        <small>© {new Date().getFullYear()} PhaseLabs · Build {import.meta.env.VITE_BUILD_HASH}</small>
+        <small>© {import.meta.env.VITE_BUILD_YEAR} PhaseLabs · Build {import.meta.env.VITE_BUILD_HASH}</small>
       </footer>
     </div>
   );

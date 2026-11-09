@@ -39,12 +39,12 @@ test('the lab overview presents all three projects with clear development status
 test('the overview reuses CardBuddy details without duplicate signup or invented project links', () => {
   assert.deepEqual([...lab.matchAll(/href="([^"]+)"/g)].map(match => match[1]), [
     '#cardbuddy',
-    '/?project=sambane',
+    '/assets/sambane.html',
   ]);
   assert.equal((home.match(/id="cardbuddy"/g) || []).length, 1);
   assert.equal((home.match(/>Request tester access /g) || []).length, 1);
   assert.match(home, /id="cardbuddy-documentation"/);
-  assert.match(home, /href="\/\?guide=cardbuddy"/);
+  assert.match(home, /href="\/assets\/cardbuddy-guide\.html"/);
   assert.match(home, /href="\/assets\/cardbuddy-privacy\.html"/);
   assert.ok(home.indexOf('id="from-the-lab"') < home.indexOf('id="cardbuddy"'));
 });
@@ -63,7 +63,7 @@ test('Sambane replaces the old project with the current commerce-network directi
   assert.match(sambane, /Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending\./);
   assert.match(sambane, /Supplier offers and delivery outcomes are synthetic\./);
   assert.match(sambane, /No real goods purchases, real USDT or production lending\./);
-  assert.match(sambane, /href="\/\?project=sambane"/);
+  assert.match(sambane, /href="\/assets\/sambane\.html"/);
   assert.doesNotMatch(sambane, /<img\b|<svg\b/, 'No concept or third-party brand assets are presented as finalized artwork');
   assert.doesNotMatch(home, /Agent[ -]K|lab-agent-k-title|discover raw data, model outputs and research/i);
 });

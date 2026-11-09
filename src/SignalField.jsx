@@ -6,12 +6,14 @@ export default function SignalField() {
   const host = useRef(null);
   const controls = useRef(null);
   const [paused, setPaused] = useState(false);
-  const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
+  // Keep the server and first client render identical; read preferences after mount.
+  const [reduced, setReduced] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const element = host.current;
     const preference = matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(preference.matches);
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });

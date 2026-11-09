@@ -1,28 +1,9 @@
-import { useEffect } from 'react';
 import logo from './assets/phaselabs-header-lockup.svg';
 import SambaneFlow from './sambane/SambaneFlow';
 import SMWebSystemsLogo from './sambane/SMWebSystemsLogo';
 import './sambane/sambane.css';
 
 export default function SambanePage() {
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = 'Sambane | Where Agents Do Business · PhaseLabs';
-    const updates = [
-      ['meta[name="description"]', 'content', 'Sambane is a farmer-first commerce prototype. See the demonstrated WhatsApp broker flow, verified XRP Testnet payment and clear boundaries around voice, lending and fulfilment.'],
-      ['meta[property="og:title"]', 'content', 'Sambane | Where Agents Do Business'],
-      ['meta[property="og:description"]', 'content', 'A W3Node prototype by PhaseLabs: demonstrated WhatsApp broker coordination and XRP Testnet payments, with synthetic commerce and separate finance experiments.'],
-      ['meta[property="og:url"]', 'content', 'https://phaselabs.co.za/?project=sambane'],
-      ['link[rel="canonical"]', 'href', 'https://phaselabs.co.za/?project=sambane'],
-    ].map(([selector, attribute, value]) => {
-      const element = document.querySelector(selector);
-      const previous = element?.getAttribute(attribute);
-      element?.setAttribute(attribute, value);
-      return () => { if (element && previous !== null) element.setAttribute(attribute, previous); };
-    });
-    return () => { document.title = previousTitle; updates.forEach(restore => restore()); };
-  }, []);
-
   return (
     <div className="site-shell sambane-page">
       <a className="skip-link" href="#main">Skip to content</a>
@@ -89,7 +70,7 @@ export default function SambanePage() {
           <div className="sambane-closing-links"><a className="button" href="https://w3node.io/node-engine">About W3Node Node Engine <span aria-hidden="true">↗</span></a><a href="/#from-the-lab">Explore more from PhaseLabs <span aria-hidden="true">→</span></a></div><p className="sambane-small">In development. No real goods purchases, real USDT, production lending or verified supplier fulfilment.</p>
         </section>
       </main>
-      <footer className="site-footer frame"><a href="/" aria-label="PhaseLabs home"><img src={logo} alt="PhaseLabs" /></a><p>Sambane · Where Agents Do Business.</p><small>© {new Date().getFullYear()} PhaseLabs · Build {import.meta.env.VITE_BUILD_HASH}</small></footer>
+      <footer className="site-footer frame"><a href="/" aria-label="PhaseLabs home"><img src={logo} alt="PhaseLabs" /></a><p>Sambane · Where Agents Do Business.</p><small>© {import.meta.env.VITE_BUILD_YEAR} PhaseLabs · Build {import.meta.env.VITE_BUILD_HASH}</small></footer>
     </div>
   );
 }

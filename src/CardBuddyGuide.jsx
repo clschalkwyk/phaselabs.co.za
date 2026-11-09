@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
 import logo from './assets/phaselabs-header-lockup.svg';
 
 // Public edition of CardBuddy docs/USER_GUIDE.md; contact-bearing captures stay private.
 export default function CardBuddyGuide() {
-  useEffect(() => { document.title = 'CardBuddy user guide | PhaseLabs'; }, []);
   return (
     <div className="site-shell guide-shell">
       <a className="skip-link" href="#guide-content">Skip to guide</a>

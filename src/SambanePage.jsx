@@ -43,8 +43,8 @@ export default function SambanePage() {
           <aside className="sambane-request" aria-labelledby="request-title">
             <div className="sambane-request-top"><span className="eyebrow" id="request-title">It starts with a request</span><span className="sambane-example">Illustrative scenario</span></div>
             <div className="sambane-wave" aria-hidden="true">{[18, 30, 20, 44, 62, 34, 74, 48, 28, 60, 84, 44, 66, 32, 50, 26, 40, 18].map((height, index) => <i key={index} style={{ height }} />)}</div>
-            <p className="sambane-quote">“Find 10 bags of chicken feed delivered near Malmesbury.”</p>
-            <dl className="sambane-request-fields"><div><dt>The need</dt><dd>10 bags · chicken feed</dd></div><div><dt>The destination</dt><dd>Near Malmesbury</dd></div><div><dt>The next step</dt><dd>Review and confirm</dd></div></dl>
+            <p className="sambane-quote">“10 bags of chicken feed to the farm”</p>
+            <dl className="sambane-request-fields"><div><dt>The need</dt><dd>10 bags · chicken feed</dd></div><div><dt>The destination</dt><dd>The farm</dd></div><div><dt>The next step</dt><dd>Review and confirm</dd></div></dl>
             <p className="sambane-small">Planned voice input with editable text. Typing works too. This page is an illustration, not a live ordering service.</p>
           </aside>
         </section>

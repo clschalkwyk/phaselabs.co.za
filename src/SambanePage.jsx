@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import logo from './assets/phaselabs-header-lockup.svg';
 import SambaneFlow from './sambane/SambaneFlow';
+import SMWebSystemsLogo from './sambane/SMWebSystemsLogo';
 import './sambane/sambane.css';
 
 export default function SambanePage() {
@@ -36,6 +37,13 @@ export default function SambanePage() {
             <p className="eyebrow">A PhaseLabs project / W3Node prototype</p>
             <h1 id="sambane-title">Sambane<span className="sambane-period">.</span></h1>
             <p className="sambane-tagline">Where Agents Do Business.</p>
+            <div className="sambane-partnership">
+              <SMWebSystemsLogo />
+              <div>
+                <p>In partnership with <a href="https://smwebsystems.com/">SM Web Systems <span aria-hidden="true">↗</span></a>.</p>
+                <p className="sambane-partner-role">Advisory support for Sambane’s development.</p>
+              </div>
+            </div>
             <p className="sambane-intro">A farmer has a need.<br /><span>A network gets to work.</span></p>
             <p className="sambane-lede">We’re developing a commerce network where specialist AI brokers find options, coordinate delivery quotes and pay one another within approved budgets. The farmer stays in control.</p>
             <a className="button" href="#how-it-works">Explore the planned flow <span aria-hidden="true">↓</span></a>

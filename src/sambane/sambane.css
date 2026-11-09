@@ -6,6 +6,15 @@
 .sambane-hero h1 { font-size: clamp(76px, 8.4vw, 120px); letter-spacing: -0.07em; margin-top: 24px; line-height: 1; }
 .sambane-period { color: var(--cyan); }
 .sambane-tagline { font-size: 16px; letter-spacing: 0.035em; color: var(--body); margin-top: 14px; }
+.sambane-partnership { display: flex; align-items: center; gap: 16px; width: fit-content; max-width: 100%; margin-top: 24px; padding: 15px 18px; border-left: 2px solid var(--sambane-gold); background: #203b47; }
+.sambane-partner-logo { width: 42px; height: auto; flex: 0 0 42px; color: var(--ink); }
+.sambane-partnership > div { min-width: 0; }
+.sambane-partnership p { font-size: 13px; line-height: 1.7; color: var(--body); }
+.sambane-partnership a { color: var(--ink); font-weight: 600; text-decoration-color: #8ca1ad; text-underline-offset: 4px; }
+.sambane-partnership a:hover { color: var(--cyan); text-decoration-color: currentColor; }
+.sambane-partnership a span { font-size: 11px; }
+.sambane-partnership .sambane-partner-role { margin-top: 4px; color: var(--secondary); font-size: 11px; }
+
 .sambane-intro { font-size: clamp(28px, 3vw, 40px); line-height: 1.22; letter-spacing: -0.035em; margin-top: 46px; }
 .sambane-intro span { color: var(--cyan); }
 .sambane-lede { font-size: 16px; color: var(--body); line-height: 1.8; margin-top: 22px; max-width: 570px; }

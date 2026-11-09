@@ -51,12 +51,47 @@ test('every workflow stage has a keyboard-operable button and complete textual e
 });
 
 test('testnet rails, consent and synthetic commerce are explicit', () => {
-  for (const term of ['XRPL Testnet', 'Ethereum Sepolia', 'TEST USD₮ / DEMO-USDT', 'not Tether-issued, redeemable or real USDT', 'No production lending', 'No bridge, swap or foreign-exchange conversion', 'Synthetic', 'independently checked testnet receipts', 'A payment receipt does not prove that goods were delivered']) {
+  for (const term of ['XRPL Testnet', 'Ethereum Sepolia', 'TEST USD₮ / DEMO-USDT', 'not Tether-issued, redeemable or real USDT', 'No production lending', 'No bridge, swap or foreign-exchange conversion', 'Synthetic', 'independently verified on the ledger', 'A payment receipt does not prove that goods were delivered']) {
     assert.ok(page.includes(term), term);
   }
   assert.match(page, /lender must also authorize a test disbursement/);
   assert.match(page, /No real goods purchases, real USDT, production lending or verified supplier fulfilment/);
   assert.doesNotMatch(page, /Connect wallet|Sign transaction|Order now|Apply for a loan|USDT received/);
+});
+
+test('demonstrated WhatsApp broker work is distinct from the illustrated workflow', () => {
+  assert.match(page, /<h2 id="next-title">What the prototype demonstrated<\/h2>/);
+  assert.match(page, /href="#prototype-demonstrated"/);
+  assert.match(page, /id="prototype-demonstrated" aria-labelledby="next-title"/);
+  assert.match(page, /A chicken-feed request on WhatsApp resolved “the farm” to a saved address/);
+  assert.match(page, /Product and Logistics brokers used OpenRouter, a synthetic supplier catalogue and Bob Go Sandbox quotes/);
+  assert.match(page, /The brokers replied on WhatsApp/);
+  assert.match(page, /Broker activity <small>Demonstrated<\/small>/);
+  assert.match(page, /Illustrated workflow/);
+  assert.match(page, /aria-label="Explore the illustrated workflow"/);
+  assert.match(page, /It is not a live network view or transaction feed/);
+});
+
+test('verified XRP evidence links the exact public receipt without claiming it proves the workflow', () => {
+  const receipt = 'https://testnet.xrpl.org/transactions/C9B90FC07A87093DF4E7C3D567D0EB099956455D2E01C4B58FFAE9C95A82C69F/detailed';
+  assert.ok(page.includes(`href="${receipt}"`));
+  assert.match(page, /View the 0\.01 XRP Testnet transaction/);
+  assert.match(page, /0\.01 XRP from Product to Logistics/);
+  assert.match(page, /approved on Android, signed on the Mac and independently verified on the ledger/);
+  assert.match(page, /receipt appeared in the Railway dashboard/);
+  assert.match(page, /It does not prove the Android approval, Mac signing workflow or delivery of goods/);
+  assert.match(page, /Onchain evidence <small>Verified receipt<\/small>/);
+  assert.match(page, /a verified XRP Testnet payment/);
+  assert.doesNotMatch(page, /verified XRP Testnet payments/);
+});
+
+test('voice, balance reads and simulated commerce do not imply demonstrated lending or fulfilment', () => {
+  assert.match(page, /Voice is a separate Android proof of concept/);
+  assert.match(page, /WDK integration reads Sepolia test-token balances/);
+  assert.match(page, /Lending disbursement and repayment remain undemonstrated/);
+  assert.match(page, /Courier booking and fulfilment are simulated/);
+  assert.match(page, /Synthetic \/ simulated/);
+  assert.doesNotMatch(page, /Building the first proof|Testnet target|Live agent work <small>Planned|planned prototype|Planned voice input|XRPL and Sepolia receipts/);
 });
 
 test('all diagram edges and highlighted stages resolve to meaningful actors', () => {

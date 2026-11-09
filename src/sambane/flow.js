@@ -20,25 +20,25 @@ export const edges = [
 export const stages = [
   {
     title: 'Ask', heading: 'Start with the farmer, not the technology.',
-    body: 'Speak or type what is needed, how much, and where it should go. The planned Android app turns that into an editable request for the farmer to confirm.',
+    body: 'The prototype accepted a WhatsApp text request for chicken feed and resolved “the farm” to a saved address. Voice is a separate Android proof of concept; the illustrated design includes an editable request for the farmer to confirm.',
     boundary: 'A voice request is never permission to move money.',
     active: ['farmer', 'intent', 'product'],
   },
   {
     title: 'Source', heading: 'Let specialist brokers do the legwork.',
-    body: 'The Product Broker is designed to compare a controlled supplier catalogue and call a Logistics Broker for delivery estimates. Together, they would build a ranked, landed-price proposal.',
-    boundary: 'Demo supplier names, stock, prices and delivery quotes are synthetic.',
+    body: 'Product and Logistics brokers used OpenRouter, a synthetic supplier catalogue and Bob Go Sandbox quotes, then replied on WhatsApp. The diagram illustrates how those roles coordinate.',
+    boundary: 'The catalogue is synthetic and quotes come from a sandbox. Courier booking and fulfilment are simulated.',
     active: ['product', 'suppliers', 'logistics', 'proposal'],
   },
   {
     title: 'Approve', heading: 'Keep the decisions with the farmer.',
-    body: 'The farmer reviews the proposal and separately approves a capped broker budget, any demo loan terms and any optional demo purchase. A lender must also authorize a test disbursement.',
+    body: 'The demonstrated 0.01 XRP Product-to-Logistics payment was approved on Android and signed on the Mac. The wider design keeps broker budgets, loan terms and optional demo purchases under separate approvals. A lender must also authorize a test disbursement; lending remains undemonstrated.',
     boundary: 'Separate approvals. Separate balances. No unrestricted agent signing.',
     active: ['farmer', 'proposal'],
   },
   {
     title: 'Verify', heading: 'Bring back evidence, not just an answer.',
-    body: 'The planned activity timeline connects broker calls, approvals and independently checked testnet receipts. It distinguishes a verified payment from a pending transfer or a delivery claim.',
+    body: 'Both XRP Testnet transfers landed. The Product-to-Logistics payment was independently verified on the ledger and its receipt appeared in the Railway dashboard. Sepolia work currently reads test-token balances; lending disbursement and repayment remain undemonstrated.',
     boundary: 'A payment receipt does not prove that goods were delivered.',
     active: ['farmer', 'product', 'logistics', 'proposal'],
   },

@@ -76,11 +76,11 @@ export default function SambaneFlow() {
 
   return (
     <div className="sambane-flow">
-      <div className="sambane-flow-controls" aria-label="Explore the planned workflow">
+      <div className="sambane-flow-controls" aria-label="Explore the illustrated workflow">
         {stages.map((item, index) => <button type="button" key={item.title} onClick={() => setStage(index)} aria-pressed={stage === index} aria-controls="sambane-stage-detail"><span>0{index + 1}</span>{item.title}<span aria-hidden="true">↗</span></button>)}
       </div>
       <figure className="sambane-network" aria-label="Illustrative Sambane data flow">
-        <div className="sambane-network-top"><span><i aria-hidden="true" />Planned architecture</span><span>Request → coordination → proposal</span></div>
+        <div className="sambane-network-top"><span><i aria-hidden="true" />Illustrated workflow</span><span>Request → coordination → proposal</span></div>
         <div className={`sambane-diagram ${mode === '3d' ? 'is-3d' : ''}`}>
           <div className="sambane-scene" ref={host} aria-hidden="true" />
           {mode !== '3d' && <FlatFlow stage={stage} compact={compact} />}

@@ -23,6 +23,12 @@ test('Sambane page is renderable without browser globals and keeps the farmer fi
   assert.match(page, /In development/);
 });
 
+test('the illustrative request matches the requested wording and destination', () => {
+  assert.match(page, /<p class="sambane-quote">“10 bags of chicken feed to the farm”<\/p>/);
+  assert.match(page, /<dt>The destination<\/dt><dd>The farm<\/dd>/);
+  assert.doesNotMatch(page, /Malmesbury/);
+});
+
 test('every workflow stage has a keyboard-operable button and complete textual equivalent', () => {
   assert.equal((page.match(/aria-controls="sambane-stage-detail"/g) || []).length, 4);
   assert.equal((page.match(/aria-pressed="true"/g) || []).length, 1);

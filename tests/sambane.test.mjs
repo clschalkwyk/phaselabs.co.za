@@ -23,6 +23,18 @@ test('Sambane page is renderable without browser globals and keeps the farmer fi
   assert.match(page, /In development/);
 });
 
+test('the hero credits SM Web Systems with the official logo and advisory role', () => {
+  const credit = page.match(/<div class="sambane-partnership">([\s\S]*?)<\/div><\/div>/)?.[1];
+  assert.ok(credit, 'A visible partnership credit is present in the hero');
+  assert.match(credit, /In partnership with <a href="https:\/\/smwebsystems\.com\/">SM Web Systems/);
+  assert.match(credit, /Advisory support for Sambane’s development\./);
+  assert.match(credit, /viewBox="0 0 960\.01 641"/);
+  assert.match(credit, /aria-hidden="true" focusable="false"/);
+  assert.equal((credit.match(/<rect /g) || []).length, 8);
+  assert.doesNotMatch(credit, /sponsor|funded|certified|endorsed/i);
+  assert.ok(page.indexOf('sambane-partnership') < page.indexOf('sambane-intro'));
+});
+
 test('the illustrative request matches the requested wording and destination', () => {
   assert.match(page, /<p class="sambane-quote">“10 bags of chicken feed to the farm”<\/p>/);
   assert.match(page, /<dt>The destination<\/dt><dd>The farm<\/dd>/);

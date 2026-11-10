@@ -120,9 +120,9 @@ export default function App() {
               <span className="number">In development</span>
               <h3 id="lab-sambane-title">Sambane</h3>
               <p><strong>Where Agents Do Business.</strong></p>
-              <p>We’re developing an autonomous commerce network where specialist AI brokers discover, subcontract and pay one another within approved budgets, with independently verified payment receipts.</p>
-              <p>The first W3Node prototype is designed around voice or text requests for farm supplies, bringing product sourcing and delivery quotes into one proposal.</p>
-              <p className="availability">Planned demo: XRPL Testnet broker payments and separate Sepolia test-token lending. Supplier offers and delivery outcomes are synthetic. No real goods purchases, real USDT or production lending.</p>
+              <p>Sambane helps rural farmers compare farm-input and delivery costs within a budget they set, with Product and Logistics brokers coordinating the options.</p>
+              <p>If a quote exceeds the limit, the farmer can request Stokvel backing. Two designated members endorse the terms; a separate lender funds the shortfall. Payment approvals stay in the wallet.</p>
+              <p className="availability">Rehearsed: XRP Testnet broker payments and separate Sepolia credit settlement. Selectable supplier offers are synthetic; courier bookings are Sandbox. No real goods purchases, real USDT or production lending.</p>
               <a className="button" href={pagePaths.sambane}>Explore Sambane <span aria-hidden="true">↗</span></a>
             </article>
           </div>

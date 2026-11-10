@@ -51,47 +51,70 @@ test('every workflow stage has a keyboard-operable button and complete textual e
 });
 
 test('testnet rails, consent and synthetic commerce are explicit', () => {
-  for (const term of ['XRPL Testnet', 'Ethereum Sepolia', 'TEST USD₮ / DEMO-USDT', 'not Tether-issued, redeemable or real USDT', 'No production lending', 'No bridge, swap or foreign-exchange conversion', 'Synthetic', 'independently verified on the ledger', 'A payment receipt does not prove that goods were delivered']) {
+  for (const term of ['XRPL Testnet', 'Ethereum Sepolia', 'TEST USD₮ / DEMO-USDT', 'not Tether-issued, redeemable or real USDT', 'No production lending', 'No bridge, swap or foreign-exchange conversion', 'Synthetic / Sandbox', 'independently verified on the ledger', 'A payment receipt does not prove that goods were delivered']) {
     assert.ok(page.includes(term), term);
   }
-  assert.match(page, /lender must also authorize a test disbursement/);
   assert.match(page, /No real goods purchases, real USDT, production lending or verified supplier fulfilment/);
   assert.doesNotMatch(page, /Connect wallet|Sign transaction|Order now|Apply for a loan|USDT received/);
 });
 
-test('demonstrated WhatsApp broker work is distinct from the illustrated workflow', () => {
+test('the funding journey requires opt-in, independent lending and separate borrower approvals', () => {
+  for (const term of ['Being over budget never automatically starts a loan', 'One signature leaves it pending', 'Signing does not debit the Stokvel Safe', 'independent lender separately authorizes', 'borrower separately approves', 'locked guarantee reserve', 'enforceable default claim', 'repayment scheduling or loss allocation']) {
+    assert.ok(page.includes(term), term);
+  }
+  assert.match(page, /R2,408.89 including delivery against a R1,600 limit leaves R808.89/);
+  assert.match(page, /fixed demo rate, not a live exchange rate/);
+  assert.match(page, /do not mean the farmer pays twice/);
+});
+
+test('the current Android build and ongoing WhatsApp validation are distinguished', () => {
+  assert.match(page, /QVAC extracted the request and rand budget on a compatible Android phone/);
+  assert.match(page, /not every voice or location scenario has been rehearsed/);
+  assert.match(page, /Budget clarification, funding choices and notification delivery are being validated/);
+  assert.match(page, /Financial approvals require wallet review/);
+  assert.match(page, /funding-choice rehearsal stopped before signatures or payments/);
+  assert.match(page, /settled credit example below used an earlier order/);
+  assert.doesNotMatch(page, /Voice is a separate Android proof of concept|Lending disbursement and repayment remain undemonstrated|Balance reads, lending next|signed on the Mac/);
+});
+
+test('demonstrated broker work is distinct from the illustrated workflow and sandbox fulfilment', () => {
   assert.match(page, /<h2 id="next-title">What the prototype demonstrated<\/h2>/);
   assert.match(page, /href="#prototype-demonstrated"/);
-  assert.match(page, /id="prototype-demonstrated" aria-labelledby="next-title"/);
   assert.match(page, /A chicken-feed request on WhatsApp resolved “the farm” to a saved address/);
   assert.match(page, /Product and Logistics brokers used OpenRouter, a synthetic supplier catalogue and Bob Go Sandbox quotes/);
   assert.match(page, /The brokers replied on WhatsApp/);
-  assert.match(page, /Broker activity <small>Demonstrated<\/small>/);
+  assert.match(page, /separately approved bookings and test waybills have been exercised/);
+  assert.match(page, /Real catalogue discovery is separate from executable quotes/);
+  assert.match(page, /no physical fulfilment is verified/);
   assert.match(page, /Illustrated workflow/);
-  assert.match(page, /aria-label="Explore the illustrated workflow"/);
   assert.match(page, /It is not a live network view or transaction feed/);
 });
 
-test('verified XRP evidence links the exact public receipt without claiming it proves the workflow', () => {
-  const receipt = 'https://testnet.xrpl.org/transactions/C9B90FC07A87093DF4E7C3D567D0EB099956455D2E01C4B58FFAE9C95A82C69F/detailed';
+test('XRP evidence links the current public receipt and describes bounded hosted signing', () => {
+  const receipt = 'https://testnet.xrpl.org/transactions/C20EDC1A094367536A873A6105C9A09E3F283A2DC84BCF9133F0F05C7A9DA429/detailed';
   assert.ok(page.includes(`href="${receipt}"`));
   assert.match(page, /View the 0\.01 XRP Testnet transaction/);
-  assert.match(page, /0\.01 XRP from Product to Logistics/);
-  assert.match(page, /approved on Android, signed on the Mac and independently verified on the ledger/);
-  assert.match(page, /receipt appeared in the Railway dashboard/);
-  assert.match(page, /It does not prove the Android approval, Mac signing workflow or delivery of goods/);
-  assert.match(page, /Onchain evidence <small>Verified receipt<\/small>/);
-  assert.match(page, /a verified XRP Testnet payment/);
-  assert.doesNotMatch(page, /verified XRP Testnet payments/);
+  assert.match(page, /isolated Railway signer handles the XRP signing/);
+  assert.match(page, /After the buyer payment verifies/);
+  assert.match(page, /It does not prove the approval interface or delivery of goods/);
 });
 
-test('voice, balance reads and simulated commerce do not imply demonstrated lending or fulfilment', () => {
-  assert.match(page, /Voice is a separate Android proof of concept/);
-  assert.match(page, /WDK integration reads Sepolia test-token balances/);
-  assert.match(page, /Lending disbursement and repayment remain undemonstrated/);
-  assert.match(page, /Courier booking and fulfilment are simulated/);
-  assert.match(page, /Synthetic \/ simulated/);
-  assert.doesNotMatch(page, /Building the first proof|Testnet target|Live agent work <small>Planned|planned prototype|Planned voice input|XRPL and Sepolia receipts/);
+test('Sepolia evidence links all three existing transfers without implying repayment', () => {
+  for (const hash of [
+    '0x2fe7d6cdbea00ff7c0c002529c796900e84c33122fc9ba92c68b75b5c60cb944',
+    '0x2d9fe6da5b8a88184e3054253ee55bbadd4797c8ea332dcc1592d8ece1076367',
+    '0xf56258582dabf1e7ddd518e282f12b8d8adcdd911075b13d12b6ddd7502e957e',
+  ]) assert.ok(page.includes(`href="https://sepolia.etherscan.io/tx/${hash}"`));
+  assert.match(page, /44\.938334 test USD₮/);
+  assert.match(page, /127\.777778 to the supplier and 6\.049445 to the courier/);
+  assert.match(page, /Repayment and default handling are not demonstrated/);
+});
+
+test('the aardvark has accessible sizing and the public CTA does not expose the hackathon demo', () => {
+  assert.match(page, /class="sambane-mascot"[^>]*alt="Sambane’s friendly aardvark mascot wearing a green scarf"[^>]*width="1312" height="1199"/);
+  assert.match(page, /href="https:\/\/sambanestokvel\.co\.za\/"/);
+  assert.match(page, /Waiting lists are open for farmers, suppliers, lenders and Stokvel members/);
+  assert.doesNotMatch(page, /href="https:\/\/(?:demo\.sambanestokvel\.co\.za|sambane-demo-demo\.up\.railway\.app)/);
 });
 
 test('all diagram edges and highlighted stages resolve to meaningful actors', () => {

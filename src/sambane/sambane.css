@@ -23,8 +23,7 @@
 .sambane-request-top { display: flex; flex-direction: column; gap: 8px; }
 .sambane-request .eyebrow { color: var(--sambane-gold); }
 .sambane-example { font-size: 11px; color: var(--secondary); }
-.sambane-wave { display: flex; align-items: center; justify-content: center; gap: 6px; height: 110px; margin-top: 22px; }
-.sambane-wave i { width: 4px; border-radius: 6px; background: linear-gradient(#a4f4e8, #00c7ce); opacity: 0.8; }
+.sambane-mascot { display: block; width: 100%; max-width: 250px; height: auto; margin: 16px auto 0; filter: drop-shadow(0 12px 18px #08192250); }
 .sambane-quote { font-size: clamp(23px, 2.15vw, 29px); line-height: 1.45; letter-spacing: -0.025em; margin-top: 14px; }
 .sambane-request-fields { margin: 25px 0 20px; }
 .sambane-request-fields > div { display: flex; justify-content: space-between; gap: 14px; border-top: 1px solid #47616e; padding: 13px 0; font-size: 12px; line-height: 1.5; }
@@ -178,3 +177,14 @@
 @media (prefers-reduced-motion: reduce) {
   .sambane-page *, .sambane-page *::before, .sambane-page *::after { animation: none !important; transition: none !important; }
 }
+
+.sambane-backing-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.sambane-backing-steps li { border-top: 2px solid var(--sambane-gold); padding: 24px 20px; background: #203b47; }
+.sambane-backing-steps li > span { font-size: 12px; color: var(--sambane-gold); }
+.sambane-backing-steps h3 { margin-top: 18px; font-size: 22px; font-weight: 400; line-height: 1.35; }
+.sambane-backing-steps p { margin-top: 12px; font-size: 14px; line-height: 1.8; color: var(--body); }
+.sambane-scope-note { margin-top: 18px; max-width: 900px; }
+.sambane-receipt-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 20px; }
+.sambane-receipt-links a { font-size: 13px; line-height: 1.8; color: var(--cyan); text-underline-offset: 4px; }
+@media (max-width: 1050px) { .sambane-backing-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .sambane-backing-steps { grid-template-columns: 1fr; } .sambane-mascot { max-width: 210px; } }

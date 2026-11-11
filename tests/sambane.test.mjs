@@ -111,7 +111,7 @@ test('Sepolia evidence links all three existing transfers without implying repay
 });
 
 test('the aardvark has accessible sizing and the public CTA does not expose the hackathon demo', () => {
-  assert.match(page, /class="sambane-mascot"[^>]*alt="Sambane’s friendly aardvark mascot wearing a green scarf"[^>]*width="1312" height="1199"/);
+  assert.match(page, /class="sambane-mascot"[^>]*alt="Sambane’s waving aardvark mascot with the words Sambane: It takes a village."[^>]*width="1199" height="1312"/);
   assert.match(page, /href="https:\/\/sambanestokvel\.co\.za\/"/);
   assert.match(page, /Waiting lists are open for farmers, suppliers, lenders and Stokvel members/);
   assert.doesNotMatch(page, /href="https:\/\/(?:demo\.sambanestokvel\.co\.za|sambane-demo-demo\.up\.railway\.app)/);

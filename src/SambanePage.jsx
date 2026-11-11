@@ -1,5 +1,5 @@
 import logo from './assets/phaselabs-header-lockup.svg';
-import mascot from './assets/sambane-aardvark.webp';
+import mascot from './assets/sambane-village.png';
 import SambaneFlow from './sambane/SambaneFlow';
 import SMWebSystemsLogo from './sambane/SMWebSystemsLogo';
 import './sambane/sambane.css';
@@ -39,7 +39,7 @@ export default function SambanePage() {
           </div>
           <aside className="sambane-request" aria-labelledby="request-title">
             <div className="sambane-request-top"><span className="eyebrow" id="request-title">It starts with a request</span><span className="sambane-example">Illustrative scenario</span></div>
-            <img className="sambane-mascot" src={mascot} alt="Sambane’s friendly aardvark mascot wearing a green scarf" width="1312" height="1199" fetchPriority="high" />
+            <img className="sambane-mascot" src={mascot} alt="Sambane’s waving aardvark mascot with the words Sambane: It takes a village." width="1199" height="1312" fetchPriority="high" />
             <p className="sambane-quote">“10 bags of chicken feed to the farm”</p>
             <dl className="sambane-request-fields"><div><dt>The need</dt><dd>10 bags · chicken feed</dd></div><div><dt>The destination</dt><dd>The farm</dd></div><div><dt>The spending limit</dt><dd>Confirm a maximum in rand</dd></div><div><dt>The next step</dt><dd>Review the full cost</dd></div></dl>
             <p className="sambane-small">Android sourcing has been rehearsed with a rand limit. WhatsApp text intake is demonstrated; its budget prompts and notifications are still being validated. This page is an illustration, not a live ordering service.</p>

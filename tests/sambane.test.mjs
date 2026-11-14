@@ -50,64 +50,43 @@ test('every workflow stage has a keyboard-operable button and complete textual e
   assert.match(page, /Enable 3D/);
 });
 
-test('testnet rails, consent and synthetic commerce are explicit', () => {
-  for (const term of ['XRPL Testnet', 'Ethereum Sepolia', 'TEST USD₮ / DEMO-USDT', 'not Tether-issued, redeemable or real USDT', 'No production lending', 'No bridge, swap or foreign-exchange conversion', 'Synthetic / Sandbox', 'independently verified on the ledger', 'A payment receipt does not prove that goods were delivered']) {
-    assert.ok(page.includes(term), term);
-  }
+test('current native XRP flow preserves consent and prototype boundaries', () => {
+  for (const term of ['XRPL Testnet', 'fixed XRP pricing', 'two members’ off-chain endorsements', 'farmer and member signatures', 'payment journal', 'does not convert rand', 'No locked guarantee reserve', 'No mainnet funds', 'A payment receipt does not prove that goods were delivered']) assert.ok(page.includes(term), term);
   assert.match(page, /No real goods purchases, real USDT, production lending or verified supplier fulfilment/);
-  assert.doesNotMatch(page, /Connect wallet|Sign transaction|Order now|Apply for a loan|USDT received/);
+  assert.doesNotMatch(page, /WhatsApp|Connect wallet|Sign transaction|Order now|Apply for a loan|USDT received/);
 });
 
-test('the funding journey requires opt-in, independent lending and separate borrower approvals', () => {
-  for (const term of ['Being over budget never automatically starts a loan', 'One signature leaves it pending', 'Signing does not debit the Stokvel Safe', 'independent lender separately authorizes', 'borrower separately approves', 'locked guarantee reserve', 'enforceable default claim', 'repayment scheduling or loss allocation']) {
-    assert.ok(page.includes(term), term);
-  }
-  assert.match(page, /R2,408.89 including delivery against a R1,600 limit leaves R808.89/);
-  assert.match(page, /fixed demo rate, not a live exchange rate/);
-  assert.match(page, /do not mean the farmer pays twice/);
+test('current Android build and historical experiments are distinguished', () => {
+  assert.match(page, /text-first Android input/);
+  assert.match(page, /behind a demo build flag, not enabled in every app build/);
+  assert.match(page, /Earlier Sepolia test-token and broker-fee experiments are historical/);
+  assert.match(page, /Build review: 14 November 2026/);
+  assert.doesNotMatch(page, /R2,408.89|2 XRP Testnet payment|Safe’s two owners/);
 });
 
-test('the current Android build and ongoing WhatsApp validation are distinguished', () => {
-  assert.match(page, /QVAC extracted the request and rand budget on a compatible Android phone/);
-  assert.match(page, /not every voice or location scenario has been rehearsed/);
-  assert.match(page, /Budget clarification, funding choices and notification delivery are being validated/);
-  assert.match(page, /Financial approvals require wallet review/);
-  assert.match(page, /funding-choice rehearsal stopped before signatures or payments/);
-  assert.match(page, /settled credit example below used an earlier order/);
-  assert.doesNotMatch(page, /Voice is a separate Android proof of concept|Lending disbursement and repayment remain undemonstrated|Balance reads, lending next|signed on the Mac/);
-});
-
-test('demonstrated broker work is distinct from the illustrated workflow and sandbox fulfilment', () => {
-  assert.match(page, /<h2 id="next-title">What the prototype demonstrated<\/h2>/);
-  assert.match(page, /href="#prototype-demonstrated"/);
-  assert.match(page, /A chicken-feed request on WhatsApp resolved “the farm” to a saved address/);
-  assert.match(page, /Product and Logistics brokers used OpenRouter, a synthetic supplier catalogue and Bob Go Sandbox quotes/);
-  assert.match(page, /The brokers replied on WhatsApp/);
-  assert.match(page, /separately approved bookings and test waybills have been exercised/);
-  assert.match(page, /Real catalogue discovery is separate from executable quotes/);
-  assert.match(page, /no physical fulfilment is verified/);
+test('settlement and the separate sandbox booking rehearsal are distinguished', () => {
+  assert.match(page, /The supplier invoice is simulated/);
+  assert.match(page, /The settlement flow does not book a courier/);
+  assert.match(page, /separate, optional sandbox booking rehearsal/);
+  assert.match(page, /not part of the current native XRP settlement flow/);
   assert.match(page, /Illustrated workflow/);
   assert.match(page, /It is not a live network view or transaction feed/);
 });
 
-test('XRP evidence links the current public receipt and describes bounded hosted signing', () => {
-  const receipt = 'https://testnet.xrpl.org/transactions/C20EDC1A094367536A873A6105C9A09E3F283A2DC84BCF9133F0F05C7A9DA429/detailed';
-  assert.ok(page.includes(`href="${receipt}"`));
-  assert.match(page, /View the 0\.01 XRP Testnet transaction/);
-  assert.match(page, /isolated Railway signer handles the XRP signing/);
-  assert.match(page, /After the buyer payment verifies/);
-  assert.match(page, /It does not prove the approval interface or delivery of goods/);
+test('dated evidence links source proof without claiming independent audit or complete protocol proof', () => {
+  assert.ok(page.includes('https://github.com/clschalkwyk/sambane-w3node-2026/blob/d6b84a137e47cfdc6562539fda751438ddf1765e/docs/native-xrp-demo-proof.md'));
+  assert.match(page, /not an independent audit/);
+  assert.match(page, /four transfers: lender to farmer, farmer to Product Agent/);
+  assert.match(page, /do not, by themselves, prove a complete HTTP challenge-response exchange/);
+  assert.match(page, /no production guarantee, repayment collection or default recovery is demonstrated/);
 });
 
-test('Sepolia evidence links all three existing transfers without implying repayment', () => {
-  for (const hash of [
-    '0x2fe7d6cdbea00ff7c0c002529c796900e84c33122fc9ba92c68b75b5c60cb944',
-    '0x2d9fe6da5b8a88184e3054253ee55bbadd4797c8ea332dcc1592d8ece1076367',
-    '0xf56258582dabf1e7ddd518e282f12b8d8adcdd911075b13d12b6ddd7502e957e',
-  ]) assert.ok(page.includes(`href="https://sepolia.etherscan.io/tx/${hash}"`));
-  assert.match(page, /44\.938334 test USD₮/);
-  assert.match(page, /127\.777778 to the supplier and 6\.049445 to the courier/);
-  assert.match(page, /Repayment and default handling are not demonstrated/);
+test('homepage card and metadata reflect native XRP rather than old settlement rails', async () => {
+  const app = await readFile(new URL('../src/App.jsx', import.meta.url), 'utf8');
+  const metadata = await readFile(new URL('../src/pages.js', import.meta.url), 'utf8');
+  assert.match(app, /native XRP Testnet funding, deposit and agent settlement/);
+  assert.match(metadata, /native XRP Testnet agent settlement/);
+  assert.doesNotMatch(app + metadata, /separate Sepolia credit/);
 });
 
 test('the aardvark has accessible sizing and the public CTA does not expose the hackathon demo', () => {

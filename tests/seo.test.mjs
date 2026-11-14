@@ -38,7 +38,7 @@ test('every built page has one self-canonical, complete metadata and useful raw 
   const guide = await htmlFor(findPage(pagePaths.cardbuddyGuide));
   for (const term of ['CardBuddy documentation', 'Install or update', 'Share a contact QR, image or PDF', 'Storage and troubleshooting', 'Version 1.13']) assert.ok(guide.includes(term), term);
   const sambane = await htmlFor(findPage(pagePaths.sambane));
-  for (const term of ['What the prototype demonstrated', 'Illustrated workflow', 'Verified receipt', 'SM Web Systems']) assert.ok(sambane.includes(term), term);
+  for (const term of ['What the prototype demonstrated', 'Illustrated workflow', 'Documented Testnet run', 'SM Web Systems']) assert.ok(sambane.includes(term), term);
 });
 
 test('pre-rendered pages have production assets and Sambane styles without waiting for JavaScript', async () => {

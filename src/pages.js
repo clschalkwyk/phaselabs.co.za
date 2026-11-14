@@ -18,9 +18,9 @@ export const pages = [
   {
     id: 'sambane', path: '/assets/sambane.html', entry: 'src/SambanePage.jsx',
     title: 'Sambane | Where Agents Do Business · PhaseLabs',
-    description: 'Sambane is a rural-farmer commerce prototype with budgeted input sourcing, Stokvel-backed credit rehearsals, verified Testnet receipts and clear sandbox boundaries.',
+    description: 'Sambane is an Android-first rural-farmer commerce prototype with Stokvel endorsements, farmer-approved agent settlement and native XRP Testnet payment evidence.',
     ogTitle: 'Sambane | Where Agents Do Business',
-    ogDescription: 'A W3Node prototype by PhaseLabs: farmer-controlled budgets, community backing, separate Sepolia credit and XRP broker-payment rehearsals. In development.',
+    ogDescription: 'A W3Node prototype by PhaseLabs: farmer-approved mandates, community endorsements and native XRP Testnet agent settlement. Simulated commerce. In development.',
   },
 ];
 

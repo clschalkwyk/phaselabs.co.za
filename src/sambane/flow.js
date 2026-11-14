@@ -1,5 +1,5 @@
 export const nodes = [
-  { id: 'farmer', label: 'The farmer', detail: 'Request + rand limit', x: -5, z: 0 },
+  { id: 'farmer', label: 'The farmer', detail: 'Request + spending terms', x: -5, z: 0 },
   { id: 'intent', label: 'Confirm the need', detail: 'Review + clarify', x: -2.6, z: 0 },
   { id: 'product', label: 'Product Broker', detail: 'Find + coordinate', x: -0.1, z: 0 },
   { id: 'suppliers', label: 'Supplier catalogue', detail: 'Synthetic offers', x: 2.4, z: -2.4 },
@@ -20,25 +20,25 @@ export const edges = [
 export const stages = [
   {
     title: 'Ask', heading: 'Start with the farmer, not the technology.',
-    body: 'Enter the item, quantity, destination and rand limit in Sambane Wallet. QVAC extraction has been rehearsed on Android; missing details need clarification and the farmer reviews the request. WhatsApp text intake is demonstrated, while its budget flow is still being validated.',
+    body: 'Describe the item, quantity and destination in the text-first Android app. The native XRP order screen is available in selected demo builds and uses fixed demo XRP prices, not a fiat conversion.',
     boundary: 'A request is never permission to borrow or move money.',
     active: ['farmer', 'intent', 'product'],
   },
   {
     title: 'Source', heading: 'Let specialist brokers do the legwork.',
-    body: 'Product and Logistics brokers coordinate synthetic supplier offers and Bob Go Sandbox rates. The farmer sees the landed cost, including delivery, before selecting a quote.',
-    boundary: 'Real catalogue observations are separate from selectable demo quotes. Sandbox bookings do not move goods.',
+    body: 'Product and Logistics coordinate a proposal using simulated supplier invoices and Bob Go Sandbox logistics. The farmer reviews the supplier, courier and total before authorizing the order.',
+    boundary: 'Demo quotes are not executable real-world offers. Sandbox bookings do not move goods.',
     active: ['product', 'suppliers', 'logistics', 'proposal'],
   },
   {
     title: 'Approve', heading: 'Keep the decisions with the farmer.',
-    body: 'An over-budget quote requires an explicit choice to request funding or revise the request. In the credit rehearsal, two Stokvel members endorse the terms, a separate lender funds the shortfall, and the borrower approves supplier and courier payments. The XRP broker mandate is a separate Testnet demonstration.',
-    boundary: 'Separate approvals. Separate balances. No unrestricted agent signing.',
+    body: 'The farmer signs a bounded mandate, two Stokvel members endorse the terms off-chain, and a lender authorizes Testnet XRP funding to the farmer. The farmer then deposits the order funds into the agent wallet.',
+    boundary: 'Separate approvals. No locked collateral. No unrestricted agent signing.',
     active: ['farmer', 'proposal'],
   },
   {
     title: 'Verify', heading: 'Bring back evidence, not just an answer.',
-    body: 'The wallet and dashboard show verified XRP Testnet broker-payment evidence. A separate Sepolia rehearsal verified the lender, supplier and courier transfers. An approved Bob Go Sandbox booking produced a test waybill, with QVAC OCR reading its reference and date.',
+    body: 'The runner checks x402 payment requirements against the mandate before paying the approved supplier and courier demo wallets. Caps and payment journaling guard against blind repeats. A separate sandbox booking rehearsal is not part of this settlement flow.',
     boundary: 'A payment receipt does not prove that goods were delivered.',
     active: ['farmer', 'product', 'logistics', 'proposal'],
   },

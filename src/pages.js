@@ -17,10 +17,10 @@ export const pages = [
   },
   {
     id: 'sambane', path: '/assets/sambane.html', entry: 'src/SambanePage.jsx',
-    title: 'Sambane | Where Agents Do Business · PhaseLabs',
-    description: 'Sambane is an Android-first rural-farmer commerce prototype with Stokvel endorsements, farmer-approved agent settlement and native XRP Testnet payment evidence.',
-    ogTitle: 'Sambane | Where Agents Do Business',
-    ogDescription: 'A W3Node prototype by PhaseLabs: farmer-approved mandates, community endorsements and native XRP Testnet agent settlement. Simulated commerce. In development.',
+    title: 'Sambane | Agentic procurement for farmers · PhaseLabs',
+    description: 'AI-powered input sourcing for small-scale farmers. A procurement assistant designed to compare supplier and transport options, with the final decision kept with the farmer. In development.',
+    ogTitle: 'Sambane | AI-powered input sourcing',
+    ogDescription: 'A procurement assistant in development: understand the need, research inputs, coordinate supplier and logistics quotes, and return a proposal for farmer approval.',
   },
 ];
 

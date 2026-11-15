@@ -119,10 +119,10 @@ export default function App() {
             <article className="question-card lab-project" aria-labelledby="lab-sambane-title">
               <span className="number">In development</span>
               <h3 id="lab-sambane-title">Sambane</h3>
-              <p><strong>Where Agents Do Business.</strong></p>
-              <p>Sambane is an Android-first rural-farmer commerce prototype. Farmers review a proposal and approve a bounded mandate for an agent to coordinate supplier and courier payments.</p>
-              <p>Two Stokvel members endorse the terms off-chain. A lender funds the farmer, who deposits the approved order funds into the agent wallet. The agent’s authority is limited to the signed terms.</p>
-              <p className="availability">Latest rehearsal: native XRP Testnet funding, deposit and agent settlement. Fixed demo XRP prices, simulated supplier invoices and Bob Go Sandbox logistics. No locked collateral, real goods purchases or production lending.</p>
+              <p><strong>AI-powered input sourcing for small-scale farmers.</strong></p>
+              <p>Sambane is being developed as a procurement assistant: understand the farmer’s request, research suitable inputs and coordinate supplier and transport quotes.</p>
+              <p>Compare the complete offer, including collection or delivery, before making a decision. The farmer stays in control; payment is separate from the sourcing engine.</p>
+              <p className="availability">In development. Earlier supplier data was simulated and logistics used a sandbox. Live supplier follow-up and real-world fulfilment remain to be validated.</p>
               <a className="button" href={pagePaths.sambane}>Explore Sambane <span aria-hidden="true">↗</span></a>
             </article>
           </div>

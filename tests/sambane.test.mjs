@@ -17,8 +17,8 @@ after(async () => { await server?.close(); });
 
 test('Sambane page is renderable without browser globals and keeps the farmer first', () => {
   assert.match(page, /<h1 id="sambane-title">Sambane/);
-  assert.match(page, /A farmer has a need/);
-  assert.match(page, /This page is an illustration, not a live ordering service/);
+  assert.match(page, /Less time chasing quotes/);
+  assert.match(page, /This page describes the product direction, not a live ordering service/);
   assert.match(page, /href="\/#from-the-lab"/);
   assert.match(page, /In development/);
 });
@@ -50,50 +50,38 @@ test('every workflow stage has a keyboard-operable button and complete textual e
   assert.match(page, /Enable 3D/);
 });
 
-test('current native XRP flow preserves consent and prototype boundaries', () => {
-  for (const term of ['XRPL Testnet', 'fixed XRP pricing', 'two members’ off-chain endorsements', 'farmer and member signatures', 'payment journal', 'does not convert rand', 'No locked guarantee reserve', 'No mainnet funds', 'A payment receipt does not prove that goods were delivered']) assert.ok(page.includes(term), term);
-  assert.match(page, /No real goods purchases, real USDT, production lending or verified supplier fulfilment/);
-  assert.doesNotMatch(page, /WhatsApp|Connect wallet|Sign transaction|Order now|Apply for a loan|USDT received/);
+test('the page presents a planned sourcing workflow without payment or lending machinery', () => {
+  for (const term of ['Agentic procurement', 'AI-powered input sourcing for small-scale farmers', 'supplier outreach and live logistics integrations remain to be validated', 'Source first.', 'Keep payment separate.', 'A quote request is not an order', 'does not need to hold funds']) assert.ok(page.includes(term), term);
+  assert.doesNotMatch(page.replace(/<[^>]+>/g, ''), /\b(?:XRP|USDT|XRPL|Sepolia|x402|wallet|blockchain|Stokvel|lender|W3Node|WhatsApp)\b/i);
 });
 
-test('current Android build and historical experiments are distinguished', () => {
-  assert.match(page, /text-first Android input/);
-  assert.match(page, /behind a demo build flag, not enabled in every app build/);
-  assert.match(page, /Earlier Sepolia test-token and broker-fee experiments are historical/);
-  assert.match(page, /Build review: 14 November 2026/);
-  assert.doesNotMatch(page, /R2,408.89|2 XRP Testnet payment|Safe’s two owners/);
+test('sourcing covers supplier liaison, transport responsibility and farmer approval', () => {
+  for (const term of ['request quotes', 'clarify stock', 'farmer will collect', 'supplier can deliver', 'courier is needed', 'liaise with logistics providers', 'responsibility for transport explicit', 'approve, amend or decline', 'quote validity', 'A courier quote is not a booking']) assert.ok(page.includes(term), term);
+  assert.match(page, /No claim to the cheapest price everywhere/);
+  assert.match(page, /permissioned/);
 });
 
-test('settlement and the separate sandbox booking rehearsal are distinguished', () => {
-  assert.match(page, /The supplier invoice is simulated/);
-  assert.match(page, /The settlement flow does not book a courier/);
-  assert.match(page, /separate, optional sandbox booking rehearsal/);
-  assert.match(page, /not part of the current native XRP settlement flow/);
+test('prototype evidence is distinguished from the intended live service', () => {
+  assert.match(page, /Previous supplier invoices were simulated/);
+  assert.match(page, /Bob Go Sandbox/);
+  assert.match(page, /full workflow described here is a product goal/);
+  assert.match(page, /No live ordering, supplier negotiation or delivery service is offered/);
   assert.match(page, /Illustrated workflow/);
-  assert.match(page, /It is not a live network view or transaction feed/);
+  assert.doesNotMatch(page, /Order now|Connect wallet|Sign transaction|Apply for a loan/);
 });
 
-test('dated evidence links source proof without claiming independent audit or complete protocol proof', () => {
-  assert.ok(page.includes('https://github.com/clschalkwyk/sambane-w3node-2026/blob/d6b84a137e47cfdc6562539fda751438ddf1765e/docs/native-xrp-demo-proof.md'));
-  assert.match(page, /not an independent audit/);
-  assert.match(page, /four transfers: lender to farmer, farmer to Product Agent/);
-  assert.match(page, /do not, by themselves, prove a complete HTTP challenge-response exchange/);
-  assert.match(page, /no production guarantee, repayment collection or default recovery is demonstrated/);
-});
-
-test('homepage card and metadata reflect native XRP rather than old settlement rails', async () => {
+test('homepage and metadata reflect procurement without crypto', async () => {
   const app = await readFile(new URL('../src/App.jsx', import.meta.url), 'utf8');
   const metadata = await readFile(new URL('../src/pages.js', import.meta.url), 'utf8');
-  assert.match(app, /native XRP Testnet funding, deposit and agent settlement/);
-  assert.match(metadata, /native XRP Testnet agent settlement/);
-  assert.doesNotMatch(app + metadata, /separate Sepolia credit/);
+  assert.match(app, /payment is separate from the sourcing engine/);
+  assert.match(metadata, /AI-powered input sourcing for small-scale farmers/);
+  assert.doesNotMatch(app + metadata, /XRP|USDT|XRPL|Sepolia|x402|Where Agents Do Business/);
 });
 
-test('the aardvark has accessible sizing and the public CTA does not expose the hackathon demo', () => {
+test('the mascot is accessible and no obsolete demo or financing CTA remains', () => {
   assert.match(page, /class="sambane-mascot"[^>]*alt="Sambane’s waving aardvark mascot with the words Sambane: It takes a village."[^>]*width="1199" height="1312"/);
-  assert.match(page, /href="https:\/\/sambanestokvel\.co\.za\/"/);
-  assert.match(page, /Waiting lists are open for farmers, suppliers, lenders and Stokvel members/);
-  assert.doesNotMatch(page, /href="https:\/\/(?:demo\.sambanestokvel\.co\.za|sambane-demo-demo\.up\.railway\.app)/);
+  assert.match(page, /href="#how-it-works"/);
+  assert.doesNotMatch(page, /sambanestokvel|w3node.io|sambane-demo-demo/);
 });
 
 test('all diagram edges and highlighted stages resolve to meaningful actors', () => {

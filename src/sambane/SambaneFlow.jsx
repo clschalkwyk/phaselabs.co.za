@@ -80,19 +80,19 @@ export default function SambaneFlow() {
         {stages.map((item, index) => <button type="button" key={item.title} onClick={() => setStage(index)} aria-pressed={stage === index} aria-controls="sambane-stage-detail"><span>0{index + 1}</span>{item.title}<span aria-hidden="true">↗</span></button>)}
       </div>
       <figure className="sambane-network" aria-label="Illustrative Sambane data flow">
-        <div className="sambane-network-top"><span><i aria-hidden="true" />Illustrated workflow</span><span>Request → coordination → proposal</span></div>
+        <div className="sambane-network-top"><span><i aria-hidden="true" />Illustrated workflow</span><span>Request → sourcing → farmer approval</span></div>
         <div className={`sambane-diagram ${mode === '3d' ? 'is-3d' : ''}`}>
           <div className="sambane-scene" ref={host} aria-hidden="true" />
           {mode !== '3d' && <FlatFlow stage={stage} compact={compact} />}
           <div className="sambane-node-labels" aria-hidden="true">{nodes.map(node => {
             const point = positions?.[node.id] || flatPoint(node, compact);
-            return <div key={node.id} className={`sambane-node-label ${activeStage.active.includes(node.id) ? 'is-active' : ''} ${node.id === 'farmer' ? 'is-farmer' : ''}`} style={{ left: `${point.x}%`, top: `${point.y}%` }}><strong>{node.label}</strong><span>{node.detail}</span></div>;
+            return <div key={node.id} className={`sambane-node-label ${activeStage.active.includes(node.id) ? 'is-active' : ''} ${node.id === 'farmer' ? 'is-farmer' : ''}`} style={{ left: `${point.x}%`, top: `${positions ? Math.max(node.id === 'suppliers' ? 30 : 16, point.y) : point.y}%` }}><strong>{node.label}</strong><span>{node.detail}</span></div>;
           })}</div>
         </div>
         <figcaption><span>{mode === '3d' ? (reduced ? 'Still view · reduced motion' : '3D data-flow study · illustrative only') : fallbackReason}</span><div>{mode === '3d' && !reduced && <button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? 'Play motion' : 'Pause motion'}</button>}{mode === 'flat' && !enable3D && <button type="button" onClick={() => setEnable3D(true)}>Enable 3D</button>}</div></figcaption>
       </figure>
       <div className="sambane-stage-detail" id="sambane-stage-detail" aria-live="polite" aria-atomic="true"><span className="sambane-stage-number">0{stage + 1}</span><div><h3>{activeStage.heading}</h3><p>{activeStage.body}</p><p className="sambane-boundary">{activeStage.boundary}</p></div></div>
-      <details className="sambane-text-flow"><summary>Read the complete flow in text</summary><ol>{stages.map(item => <li key={item.title}><strong>{item.title}: {item.heading}</strong><p>{item.body}</p><p>{item.boundary}</p></li>)}</ol><p>Information flows from the farmer through a confirmed request to the Product Broker. The broker coordinates supplier options and a Logistics Broker estimate, which return as one proposal for the farmer. Payment rails are described separately below.</p></details>
+      <details className="sambane-text-flow"><summary>Read the complete flow in text</summary><ol>{stages.map(item => <li key={item.title}><strong>{item.title}: {item.heading}</strong><p>{item.body}</p><p>{item.boundary}</p></li>)}</ol><p>The intended flow starts with a clarified request. The sourcing assistant coordinates supplier research and transport options, then returns a comparable proposal for farmer approval. Payment, order placement and courier booking sit outside this sourcing flow.</p></details>
     </div>
   );
 }

@@ -49,20 +49,17 @@ test('the overview reuses CardBuddy details without duplicate signup or invented
   assert.ok(home.indexOf('id="from-the-lab"') < home.indexOf('id="cardbuddy"'));
 });
 
-test('Sambane replaces the old project with the current commerce-network direction', () => {
+test('Sambane replaces the old project with the focused procurement direction', () => {
   const sambane = lab.match(/<article[^>]+aria-labelledby="lab-sambane-title"[^>]*>([\s\S]*?)<\/article>/)?.[1];
   assert.ok(sambane, 'Sambane has its own labelled project card');
   assert.match(sambane, /In development/);
   assert.match(sambane, /<h3 id="lab-sambane-title">Sambane<\/h3>/);
-  assert.match(sambane, /Where Agents Do Business\./);
-  assert.match(sambane, /Android-first rural-farmer commerce prototype/);
-  assert.match(sambane, /approve a bounded mandate/);
-  assert.match(sambane, /Two Stokvel members endorse the terms off-chain/);
-  assert.match(sambane, /A lender funds the farmer/);
-  assert.match(sambane, /native XRP Testnet funding, deposit and agent settlement/);
-  assert.match(sambane, /simulated supplier invoices and Bob Go Sandbox logistics/);
-  assert.match(sambane, /No locked collateral, real goods purchases or production lending/);
-  assert.doesNotMatch(sambane, /WhatsApp|separate Sepolia credit settlement/);
+  assert.match(sambane, /AI-powered input sourcing for small-scale farmers/);
+  assert.match(sambane, /procurement assistant/);
+  assert.match(sambane, /collection or delivery/);
+  assert.match(sambane, /payment is separate from the sourcing engine/);
+  assert.match(sambane, /Live supplier follow-up and real-world fulfilment remain to be validated/);
+  assert.doesNotMatch(sambane, /WhatsApp|XRP|USDT|Stokvel|lender|wallet/);
   assert.match(sambane, /href="\/assets\/sambane\.html"/);
   assert.doesNotMatch(sambane, /<img\b|<svg\b/, 'No concept or third-party brand assets are presented as finalized artwork');
   assert.doesNotMatch(home, /Agent[ -]K|lab-agent-k-title|discover raw data, model outputs and research/i);

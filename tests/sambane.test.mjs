@@ -65,9 +65,13 @@ test('prototype evidence is distinguished from the intended live service', () =>
   assert.match(page, /Previous supplier invoices were simulated/);
   assert.match(page, /Bob Go Sandbox/);
   assert.match(page, /full workflow described here is a product goal/);
-  assert.match(page, /No live ordering, supplier negotiation or delivery service is offered/);
+  assert.match(page, /No live ordering, supplier negotiation, delivery, collective-buying or financing service is offered/);
   assert.match(page, /Illustrated workflow/);
   assert.doesNotMatch(page, /Order now|Connect wallet|Sign transaction|Apply for a loan/);
+});
+
+test('future collective buying and financing remain optional unvalidated concepts', () => {
+  for (const term of ['Helping farmers source suitable goods is the core mission', 'Virtual co-op', 'Farmers in the same area', 'pool similar procurement needs', 'potential to qualify for volume discounts', 'not an operating co-op or a promise of savings', 'Each farmer would review their own costs and terms', 'Optional bolt-on services', 'without applying for finance', 'No financing service or provider arrangement is offered today', 'Availability and approval would not be guaranteed']) assert.ok(page.includes(term), term);
 });
 
 test('homepage and metadata reflect procurement without crypto', async () => {

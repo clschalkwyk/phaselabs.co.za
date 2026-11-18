@@ -11,3 +11,10 @@ test('TruckTime is discoverable and clearly separates current and planned capabi
  assert.match(html, /rel="stylesheet"[^>]+href="\/assets\/TruckTimePage-[^"]+\.css"/);
  assert.ok((await read('../dist/assets/sitemap.xml')).includes('https://phaselabs.co.za/assets/trucktime.html'));
 });
+
+test('Available now provides a direct link to the vendor waitlist form', async () => {
+ const html = await read('../dist/assets/trucktime.html');
+ const status = html.match(/<section[^>]+aria-labelledby="tt-status"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+ assert.ok(status);
+ assert.match(status, /Available now[\s\S]*href="https:\/\/trucktime\.co\.za\/#join">Join the vendor waitlist/);
+});

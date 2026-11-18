@@ -19,6 +19,7 @@ Generated files are in `dist/`; temporary server code is in `.prerender/`. Neith
 
 - Homepage: `/`
 - CardBuddy guide: `/assets/cardbuddy-guide.html`
+- TruckTime: `/assets/trucktime.html`
 - Sambane: `/assets/sambane.html`
 - Existing privacy policy: `/assets/cardbuddy-privacy.html`
 

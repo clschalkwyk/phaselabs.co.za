@@ -26,10 +26,10 @@ before(async () => {
 
 after(async () => { await server?.close(); });
 
-test('the lab overview presents all three projects with clear development status', () => {
+test('the lab overview presents all four projects with clear development status', () => {
   assert.ok(lab, 'The homepage includes a From the lab section');
   assert.match(lab, /<h2 id="lab-title">From the lab<\/h2>/);
-  assert.equal((lab.match(/<article /g) || []).length, 3);
+  assert.equal((lab.match(/<article /g) || []).length, 4);
   assert.match(lab, /Closed testing[\s\S]*<h3 id="lab-cardbuddy-title">CardBuddy<\/h3>/);
   assert.match(lab, /In development[\s\S]*<h3 id="lab-stat60-title">STAT-60<\/h3>/);
   assert.match(lab, /Exploring clearer handoffs from antimicrobial prescribing through pharmacy to bedside administration\. STAT-60 focuses on task ownership, workflow visibility and traceable records\./);
@@ -38,6 +38,7 @@ test('the lab overview presents all three projects with clear development status
 
 test('the overview reuses CardBuddy details without duplicate signup or invented project links', () => {
   assert.deepEqual([...lab.matchAll(/href="([^"]+)"/g)].map(match => match[1]), [
+    '/assets/trucktime.html',
     '#cardbuddy',
     '/assets/sambane.html',
   ]);

@@ -22,6 +22,12 @@ export const pages = [
     ogTitle: 'Sambane | AI-powered input sourcing',
     ogDescription: 'A procurement assistant in development: understand the need, research inputs, coordinate supplier and logistics quotes, and return a proposal for farmer approval.',
   },
+  {
+    id: 'trucktime', path: '/assets/trucktime.html', entry: 'src/TruckTimePage.jsx',
+    title: 'TruckTime | Follow the flavour · PhaseLabs',
+    description: 'Discover the idea behind TruckTime: vendor-confirmed food-truck locations, a PWA-first pilot, and a longer-term street-food ecosystem. Vendor waitlist open; demo uses sample data.',
+  },
+
 ];
 
 export const pagePaths = Object.fromEntries(pages.map(page => [page.id, page.path]));

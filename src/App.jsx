@@ -104,6 +104,14 @@ export default function App() {
             <p>Projects we’re building and testing alongside PhaseLabs.</p>
           </div>
           <div className="question-grid lab-grid">
+            <article className="question-card lab-project" aria-labelledby="lab-trucktime-title">
+              <span className="number">In development · Vendor waitlist open</span>
+              <h3 id="lab-trucktime-title">TruckTime</h3>
+              <p><strong>Good food. Follow the wheels.</strong></p>
+              <p>A better way to find independent food trucks, built around vendor-confirmed locations rather than yesterday’s pin. A PWA-first approach to discovering your next street-food stop.</p>
+              <p className="availability">Concept demo available with sample data. Live discovery is still in development.</p>
+              <a className="button" href={pagePaths.trucktime}>Explore TruckTime <span aria-hidden="true">↗</span></a>
+            </article>
             <article className="question-card lab-project" aria-labelledby="lab-cardbuddy-title">
               <span className="number">Closed testing</span>
               <h3 id="lab-cardbuddy-title">CardBuddy</h3>

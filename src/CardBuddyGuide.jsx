@@ -21,7 +21,7 @@ export default function CardBuddyGuide() {
 <a href="#change-the-design">Change the design</a>
 <a href="#move-and-resize-artwork-elements">Move and resize artwork elements</a>
 <a href="#present-the-card">Present the card</a>
-<a href="#share-a-contact-qr-image-or-pdf">Share a contact QR, contact file, image or PDF</a>
+<a href="#share-a-contact-qr-image-or-pdf">Share a contact QR, image or PDF</a>
 <a href="#open-a-card-from-a-home-screen-widget">Open a card from a home-screen widget</a>
 <a href="#reset-the-styling">Reset the styling</a>
 <a href="#storage-and-troubleshooting">Storage and troubleshooting</a>
@@ -83,7 +83,7 @@ export default function CardBuddyGuide() {
 <p>Tap <strong>Done</strong> when the arrangement looks right. Placement saves automatically. The QR cannot be resized, and elements can overlap, so check the result before sharing. Placement reset controls do not reset the full design. Position a separate logo through <strong>Design → Position logo</strong>.</p>
 <h2 id="present-the-card">Present the card</h2>
 <p>Tap <strong>Present</strong> to open the presentation view. Tap the card background to show or hide its controls. Use <strong>Share</strong> to share from this view, or <strong>Close</strong> to return.</p>
-<h2 id="share-a-contact-qr-image-or-pdf">Share a contact QR, contact file, image or PDF</h2>
+<h2 id="share-a-contact-qr-image-or-pdf">Share a contact QR, image or PDF</h2>
 <p>Tap <strong>Share card</strong> on the main screen, or <strong>Share</strong> in presentation.</p>
 <ul><li><strong>Show contact QR</strong> opens a large QR containing your contact details. Ask the recipient to scan it with their phone. Their scanner determines how the contact is imported.</li><li><strong>Share contact file</strong> opens Android’s chooser with a vCard contact file. The receiving app controls importing it; review which details you are sharing.</li><li><strong>Share image</strong> prepares a PNG of the card.</li><li><strong>Share PDF</strong> prepares a PDF of the card.</li></ul>
 <p>For image or PDF, inspect the preview, tap <strong>Share</strong>, then select an app or recipient in Android&#x27;s chooser. Only the card is exported, without the editor controls or surrounding app background. Available save destinations depend on the apps installed on your phone.</p>

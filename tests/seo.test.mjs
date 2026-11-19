@@ -36,7 +36,7 @@ test('every built page has one self-canonical, complete metadata and useful raw 
     assert.ok(html.indexOf('<meta charset="UTF-8"') < 1024, 'Charset remains early in the document');
   }
   const guide = await htmlFor(findPage(pagePaths.cardbuddyGuide));
-  for (const term of ['CardBuddy documentation', 'Install or update', 'Share a contact QR, image or PDF', 'Storage and troubleshooting', 'Version 1.13']) assert.ok(guide.includes(term), term);
+  for (const term of ['CardBuddy documentation', 'Install or update', 'Share a contact QR, image or PDF', 'Storage and troubleshooting', 'Version 1.14-qa', 'Build 16', 'Share contact file', 'Position logo', 'Reset layout', 'Show QR code']) assert.ok(guide.includes(term), term);
   const sambane = await htmlFor(findPage(pagePaths.sambane));
   for (const term of ['AI-powered input sourcing for small-scale farmers', 'Illustrated workflow', 'Keep payment separate.', 'SM Web Systems']) assert.ok(sambane.includes(term), term);
 });

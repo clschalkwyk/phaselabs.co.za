@@ -13,6 +13,8 @@ export default function CardBuddyGuide() {
         <nav className="guide-toc" aria-label="Guide contents">
           <p className="eyebrow">In this guide</p>
           <a href="#install-or-update">Install or update</a>
+<a href="#first-test">Your first test</a>
+<a href="#send-feedback">Send feedback</a>
 <a href="#main-screen">Main screen</a>
 <a href="#add-your-details">Add your details</a>
 <a href="#use-several-cards">Use several cards</a>
@@ -31,8 +33,25 @@ export default function CardBuddyGuide() {
 <p>This guide describes CardBuddy 1.13. Screens can differ on older versions and across Android devices.</p>
 <p>CardBuddy keeps your business card ready for introductions. No account is required. Your cards and QR codes can be displayed offline; opening a shared website still requires an internet connection.</p>
 <h2 id="install-or-update">Install or update</h2>
-<ol><li>Visit <a href="https://phaselabs.co.za/#cardbuddy">CardBuddy on the PhaseLabs website</a> and request access using your Google Play email.</li><li>Once your email is added and the closed test is available, open the <a href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy">closed-test link</a>, opt in and install from Google Play.</li><li>Open CardBuddy and add your details. Remain opted in for at least 14 days to help qualify the app for public release.</li></ol>
-<p>If you joined the internal test, leave it before opting into the closed test. This test version may lose saved cards or images: use test data and keep copies of important details and images elsewhere. Do not uninstall or clear app storage to update.</p>
+<ol>
+<li>Request beta access using the Google email you use for Google Play. If you have already received a tester invitation, you do not need to request access again.</li>
+<li>After your email has been added and the closed test is available, open the link in your invitation or the <a href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy">CardBuddy closed-test page</a>.</li>
+<li>Sign in with the <strong>same Google account that was invited</strong>. If your browser and Play Store use different accounts, switch both to the invited account.</li>
+<li>Opt into the test if prompted, then follow the Google Play link to install CardBuddy. If you already have it, update through Google Play instead.</li>
+</ol>
+<p>Please stay opted in for at least <strong>14 consecutive days</strong> and try the app during that time. Installing alone is not the same as remaining opted into the test.</p>
+<p>If you joined the older internal test, leave that test before opting into the closed test. This test version may lose saved cards or images: use test data and keep copies of important details and images elsewhere. <strong>Do not uninstall or clear app storage just to update.</strong></p>
+<p>If Google Play says the app is unavailable or you cannot join, check the account in both your browser and Play Store first. Access must be added for that account, and the test must be available. If it still does not work, reply to your invitation with the exact message you see. Do not send passwords or sign-in codes.</p>
+<h2 id="first-test">Your first test</h2>
+<ol>
+<li>Open CardBuddy, select a card or create a new blank card from <strong>Manage cards</strong>.</li>
+<li>Open <strong>Edit</strong>, add a name and a few test contact details, then <strong>Save</strong>. Check that the details appear on the card.</li>
+<li>Open <strong>Share card → Show contact QR</strong>. Scan it with another phone and check that the intended contact details appear. You do not need to save the contact to test the scan.</li>
+<li>Optionally try <strong>Share image</strong> or <strong>Share PDF</strong>. Check the preview before choosing where to save or share it. Only share details you intend the recipient to receive.</li>
+<li>Close and reopen CardBuddy and check that your card is still there. Tell us about anything confusing or unexpected.</li>
+</ol>
+<h2 id="send-feedback">Send feedback</h2>
+<p>Reply to your tester invitation with what worked, what was confusing, or what went wrong. Include your phone model, Android version, CardBuddy version and the steps that led to the problem. A screenshot helps, but hide any private contact details first. Never include passwords or sign-in codes.</p>
 <h2 id="main-screen">Main screen</h2>
 <p>Swipe the card carousel to select the active card. Use <strong>Manage cards</strong> to choose, create or copy cards, <strong>Edit</strong> to update the active card, and <strong>Present</strong> or <strong>Share card</strong> when you are ready.</p>
 <h2 id="add-your-details">Add your details</h2>
@@ -71,7 +90,7 @@ export default function CardBuddyGuide() {
 <h2 id="storage-and-troubleshooting">Storage and troubleshooting</h2>
 <p>Card details and imported images are stored on your device. Version 1.11 has no in-app backup/restore or account sync. In version 1.13, choose Edit → Backup and restore to save a backup or restore cards as copies. Backup files contain contact details and images and are not encrypted, so keep them private. PNG/PDF exports are shareable copies, not backups that can be imported to restore editable cards. Keep backups in a private location and retain your original images; Android system backup alone is not a verified recovery method.</p>
 <div className="guide-table"><table><thead><tr><th scope="col">Problem</th><th scope="col">Try this</th></tr></thead><tbody><tr><td>Details disappeared after editing</td><td>Tap Save and wait for completion; retry any save error. Check that the intended card is selected.</td></tr><tr><td>Placement option is absent</td><td>Choose Business layout for QR placement, or add background artwork to another layout to enable placement.</td></tr><tr><td>Photo is missing</td><td>Check that a photo is saved and that the selected style shows photos.</td></tr><tr><td>Text blends into artwork</td><td>Select Light/Dark text or enable Readable details panel.</td></tr><tr><td>Widget opens another card</td><td>Open ⋮ → Home-screen widgets and assign the intended card to that widget.</td></tr><tr><td>QR is hard to scan</td><td>Open Show contact QR or enlarge the selected link QR; avoid glare and ask the recipient to try again.</td></tr><tr><td>Export fails</td><td>Read the displayed error, check device storage and retry.</td></tr></tbody></table></div>
-          <p className="guide-updated">Prepared 29 October 2026 · Guide for Android version 1.13, build 15.</p>
+          <p className="guide-updated">Tester onboarding updated 19 November 2026 · Feature reference: Android version 1.13, build 15; installed screens may differ.</p>
           <a href="#guide-content">Back to top ↑</a>
         </main>
       </div>

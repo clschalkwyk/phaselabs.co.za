@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#182833" />
-    <meta name="description" content="How CardBuddy by PhaseLabs handles card details, images, sharing, Android backups and beta tester emails." />
+    <meta name="description" content="How CardBuddy by PhaseLabs handles business cards, on-device scanning, SDK diagnostics and backups." />
     <link rel="canonical" href="https://phaselabs.co.za/assets/cardbuddy-privacy.html" />
     <link rel="icon" href="/phaselabs-icon.svg" type="image/svg+xml" />
     <title>CardBuddy Privacy Policy | PhaseLabs</title>
@@ -55,19 +55,31 @@
     <main class="frame" id="main">
       <p class="eyebrow">CardBuddy · Android</p>
       <h1>Privacy Policy</h1>
-      <p class="updated">Updated <time datetime="2026-10-29">29 October 2026</time></p>
+      <p class="updated">Updated <time datetime="2026-11-26">26 November 2026</time></p>
       <p class="intro">CardBuddy is a digital business-card app from PhaseLabs. This policy explains how the Android app handles your card information and how the separate beta signup form handles your tester email. For privacy questions, email <a href="mailto:phaselabs.za@gmail.com">phaselabs.za@gmail.com</a>.</p>
 
       <section aria-labelledby="information">
         <h2 id="information">Information you add to CardBuddy</h2>
         <p>You can enter card names, your name, title, organisation, pronouns, tagline, email address, phone number and links. You can also choose a profile photo or background artwork using Android’s image picker. CardBuddy saves card details and settings in the app’s private storage and copies chosen images into private app files.</p>
-        <p>CardBuddy uses this information to show and edit your cards, generate contact or link QR codes on your device, and prepare image or PDF exports. The app does not require a CardBuddy account or sync cards to a PhaseLabs server. The current app has no configured advertising, analytics or crash-reporting SDK.</p>
+        <p>CardBuddy uses this information to show and edit your cards, generate contact or link QR codes on your device, and prepare image or PDF exports. The app does not require a CardBuddy account or sync cards to a PhaseLabs server. CardBuddy has no advertising SDK.</p>
+      </section>
+
+      <section aria-labelledby="scanning">
+        <h2 id="scanning">Card scanning and follow-ups in version 1.15</h2>
+        <p>CardBuddy asks for camera access when you choose to scan. It reads contact QR codes and recognises printed-card text on your phone. You can correct the suggested fields before saving. The printed-card crop stays in the app’s private cache during review. Saving to Collected keeps the scan with the contact. CardBuddy also stores any private notes and follow-up tasks you add there.</p>
+        <p>Printed-card recognition uses Google’s bundled ML Kit. Google processes the image and recognition results on the device. Google’s SDK may send Google technical metrics such as device and app information, a per-installation identifier, feature usage, configuration and performance. Google says it encrypts these metrics in transit and uses them to diagnose, maintain and improve ML Kit. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google’s ML Kit data disclosure</a>.</p>
       </section>
 
       <section aria-labelledby="sharing">
         <h2 id="sharing">Sharing and other apps</h2>
         <p>When you show a contact QR code, someone who scans it can receive the contact details and links you entered. A link QR code contains the selected link. People who view your card can also copy or photograph what you display.</p>
         <p>When you choose Share image or Share PDF, CardBuddy creates a file in its cache and gives temporary access to the app or recipient you select through Android’s share menu. That app or recipient may save or send the copy under its own practices. CardBuddy does not send your cards to a PhaseLabs server in the current app.</p>
+      </section>
+
+      <section aria-labelledby="external-apps">
+        <h2 id="external-apps">Card exchanges and actions in other apps</h2>
+        <p>Tap to share sends your selected card details over NFC to a nearby device. Available to swop broadcasts your chosen display name over Bluetooth for up to two minutes. The card transfers after both people approve the match.</p>
+        <p>Open Contacts passes the reviewed fields to Android’s contact editor. Open email draft hands off the recipient and draft text. Open calendar can include a contact name, a reminder date or a guest’s email when applicable. You choose whether to save a contact, send an email or create an event in that app. Those apps may sync saved information according to your accounts and settings. Company research opens the company’s website or searches Google for the company name. CardBuddy keeps your private notes in Collected.</p>
       </section>
 
       <section aria-labelledby="beta">
@@ -79,7 +91,7 @@
       <section aria-labelledby="storage">
         <h2 id="storage">Storage, backup and deletion</h2>
         <p>CardBuddy stores card details and imported images in Android’s app-private storage. Android backup is enabled. Depending on your device, account and backup settings, Android or Google may back up or transfer app data. PhaseLabs does not control copies held by those services; backup and restore behaviour can vary.</p>
-        <p>CardBuddy 1.13 can export a backup containing your cards, contact details and images to a location you choose. The backup is not encrypted; keep it somewhere private. Restoring a backup adds copies rather than replacing existing cards.</p>
+        <p>CardBuddy can export a backup of My cards and their images to a location you choose. The ZIP is unencrypted. Keep it somewhere private. Restore adds copies. Your Collected cards, scans, private notes and follow-up tasks are stored separately, outside the portable backup and Android’s backed-up directories. Deleting a Collected entry removes its stored scan, notes and follow-up tasks from CardBuddy.</p>
         <p>You can edit or clear card fields in the app. Removing a photo or artwork from a card, or resetting its styling, does not necessarily delete the image file already copied into app storage. Resetting styling keeps contact details and the profile photo.</p>
         <p>To remove the app’s current local data and files, clear CardBuddy’s storage in Android settings or uninstall the app. This does not erase copies already shared with other people or apps, files saved elsewhere, or operating-system backups. Manage those copies with the relevant recipient or service.</p>
       </section>

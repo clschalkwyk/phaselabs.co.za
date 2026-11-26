@@ -36,7 +36,8 @@ test('every built page has one self-canonical, complete metadata and useful raw 
     assert.ok(html.indexOf('<meta charset="UTF-8"') < 1024, 'Charset remains early in the document');
   }
   const guide = await htmlFor(findPage(pagePaths.cardbuddyGuide));
-  for (const term of ['CardBuddy documentation', 'Install or update', 'Share a contact QR, image or PDF', 'Storage and troubleshooting', 'Version 1.14-qa', 'Build 16', 'Share contact file', 'Position logo', 'Reset layout', 'Show QR code']) assert.ok(guide.includes(term), term);
+  for (const term of ['CardBuddy documentation', 'Install or update', 'Share a contact QR, image or PDF', 'Storage and troubleshooting', 'Version 1.15 · Build 17', 'Collect a printed business card', 'Pick from scan', 'Follow-ups', 'Back up My cards', 'Delete card', 'Share contact file', 'Position logo', 'Reset layout', 'Show QR code']) assert.ok(guide.includes(term), term);
+  assert.match(guide, /href="#collect-a-printed-card"/);
   const sambane = await htmlFor(findPage(pagePaths.sambane));
   for (const term of ['AI-powered input sourcing for small-scale farmers', 'Illustrated workflow', 'Keep payment separate.', 'SM Web Systems']) assert.ok(sambane.includes(term), term);
 });
@@ -53,8 +54,14 @@ test('pre-rendered pages have production assets and Sambane styles without waiti
   assert.match(html, /rel="stylesheet"[^>]+href="\/assets\/SambanePage-[^"]+\.css"/);
   const home = await htmlFor(pages[0]);
   assert.ok(home.includes(`href="${pagePaths.cardbuddyGuide}"`));
+  assert.match(home, /Guide for version 1\.15 · Build 17/);
   assert.ok(home.includes(`href="${pagePaths.sambane}"`));
   assert.doesNotMatch(home, /href="\/\?(guide|project)=/);
+  const guide = await htmlFor(findPage(pagePaths.cardbuddyGuide));
+  for (const page of [home, guide]) {
+    assert.ok(page.includes('href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy"'));
+    assert.doesNotMatch(page, /href="[^"]+\.apk(?:[?#][^"]*)?"/);
+  }
 });
 
 test('legacy query redirects preserve anchors and other parameters, with no open redirect', () => {

@@ -14,6 +14,7 @@ export default function CardBuddyGuide() {
           <p className="eyebrow">In this guide</p>
           <a href="#install-or-update">Install or update</a>
 <a href="#first-test">Your first test</a>
+<a href="#collect-a-printed-card">Collect a printed business card</a>
 <a href="#send-feedback">Send feedback</a>
 <a href="#main-screen">Main screen</a>
 <a href="#add-your-details">Add your details</a>
@@ -29,8 +30,8 @@ export default function CardBuddyGuide() {
         <main className="guide-content" id="guide-content">
           <p className="eyebrow">CardBuddy documentation</p>
           <h1>User guide</h1>
-          <p>Version 1.14-qa · Build 16 · Android 7.0 or later</p>
-<p>This guide describes the CardBuddy 1.14-qa closed-test release (build 16). Screens can differ on older versions and across Android devices.</p>
+          <p>Version 1.15 · Build 17 · Android 7.0 or later</p>
+<p>This guide describes CardBuddy 1.15 (build 17). Screens can differ on older versions and across Android devices.</p>
 <p>CardBuddy keeps your business card ready for introductions. No account is required. Your cards and QR codes can be displayed offline; opening a shared website still requires an internet connection.</p>
 <h2 id="install-or-update">Install or update</h2>
 <ol>
@@ -40,30 +41,38 @@ export default function CardBuddyGuide() {
 <li>Opt into the test if prompted, then follow the Google Play link to install CardBuddy. If you already have it, update through Google Play instead.</li>
 </ol>
 <p>Please stay opted in for at least <strong>14 consecutive days</strong> and try the app during that time. Installing alone is not the same as remaining opted into the test.</p>
-<p>If you joined the older internal test, leave that test before opting into the closed test. This test version may lose saved cards or images: use test data and keep copies of important details and images elsewhere. <strong>Do not uninstall or clear app storage just to update.</strong></p>
+<p>If you’re opted into internal testing and want to join the closed test, leave internal testing first. Before updating, <a href="#storage-and-troubleshooting">back up My cards</a> if your installed version supports backup. The ZIP covers My cards and their images. Keep separate copies of important Collected details, scans, notes and follow-ups. Use test data when trying new features. Install the update through Google Play over your current installation.</p>
 <p>If Google Play says the app is unavailable or you cannot join, check the account in both your browser and Play Store first. Access must be added for that account, and the test must be available. If it still does not work, reply to your invitation with the exact message you see. Do not send passwords or sign-in codes.</p>
 <h2 id="first-test">Your first test</h2>
 <ol>
-<li>Open CardBuddy, select a card or create a new blank card from <strong>Manage cards</strong>.</li>
-<li>Open <strong>Edit</strong>, add a name and a few test contact details, then <strong>Save</strong>. Check that the details appear on the card.</li>
+<li>Open CardBuddy and select a card. To create one, use <strong>Settings → Manage cards → New blank card</strong>.</li>
+<li>Open <strong>Settings → Edit your card → My details</strong>, add a name and a few test contact details, then tap <strong>Save</strong>. Check that the details appear on the card.</li>
 <li>Open <strong>Share card → Show contact QR</strong>. Scan it with another phone and check that the intended contact details appear. You do not need to save the contact to test the scan.</li>
 <li>Optionally try <strong>Share image</strong> or <strong>Share PDF</strong>. Check the preview before choosing where to save or share it. Only share details you intend the recipient to receive.</li>
 <li>Close and reopen CardBuddy and check that your card is still there. Tell us about anything confusing or unexpected.</li>
 </ol>
+<h2 id="collect-a-printed-card">Collect a printed business card</h2>
+<ol>
+<li>Open <strong>Collected → Scan a card → Printed business card</strong> and allow camera access.</li>
+<li>Choose <strong>Portrait</strong> or <strong>Landscape</strong>, fit the card inside the guides and tap <strong>Capture card</strong>.</li>
+<li>Review each contact field. To correct it, type directly or tap <strong>Pick from scan</strong>, select one or more lines and tap the button that shows how many lines you selected.</li>
+<li>Tap <strong>Save to Collected</strong>, optionally add a private note, then tap <strong>Save</strong>. You can reopen the scanned photo from the saved entry.</li>
+</ol>
+<p>To save the contact in your phone’s address book, tap <strong>Open Contacts</strong> on the scan review and finish saving in your Contacts app.</p>
+<p>After saving to Collected, use <strong>Next steps</strong> to draft an introduction, research the company, or plan a meeting. Reopen the tasks from <strong>Follow-ups</strong> on the Collected card. Review and send email drafts in your email app. In your calendar app, choose a time and calendar and save the event.</p>
 <h2 id="send-feedback">Send feedback</h2>
 <p>Reply to your tester invitation with what worked, what was confusing, or what went wrong. Include your phone model, Android version, CardBuddy version and the steps that led to the problem. A screenshot helps, but hide any private contact details first. Never include passwords or sign-in codes.</p>
 <h2 id="main-screen">Main screen</h2>
-<p>In portrait orientation, swipe the card carousel to select the active card. In landscape, use the card selector. Use <strong>Manage cards</strong> to choose, create or copy cards, <strong>Edit</strong> to update the active card, and <strong>Present</strong> or <strong>Share card</strong> when you are ready.</p>
+<p>In portrait orientation, swipe the card carousel to select the active card. Open <strong>Settings → Manage cards</strong> to choose, create or copy cards, or <strong>Settings → Edit your card</strong> to update the active card. Tap <strong>Present</strong> or <strong>Share card</strong> when you are ready.</p>
 <h2 id="add-your-details">Add your details</h2>
-<ol><li>Select <strong>Edit → My details · name, contact and links</strong>.</li><li>Enter your name, title, organization, pronouns, optional tagline, email and phone number as needed.</li><li>Use <strong>Add link</strong> to add a website or social link. Choose the link type and enter its address. The delete icon removes that link from the draft.</li><li>Tap <strong>Save</strong> and wait for it to finish. If saving fails, the editor displays an error so you can retry.</li></ol>
+<ol><li>Select <strong>Settings → Edit your card → My details · name, contact and links</strong>.</li><li>Enter your name, title, organization, pronouns, optional tagline, email and phone number as needed.</li><li>Use <strong>Add link</strong> to add a website or social link. Choose the link type and enter its address. The delete icon removes that link from the draft.</li><li>Tap <strong>Save</strong> and wait for it to finish. If saving fails, the editor displays an error so you can retry.</li></ol>
 <p>If you go Back with unsaved details, choose <strong>Save changes</strong>, <strong>Keep editing</strong>, or <strong>Discard</strong>. Photo changes save separately; Discard does not undo a photo change.</p>
 <p>To add a photo, use <strong>Pick</strong> in Details and complete the photo editor. <strong>Replace</strong> changes an existing photo; <strong>Remove</strong> clears it from the card. Some card styles hide photos, so check the selected style if your photo is not visible.</p>
 <h2 id="use-several-cards">Use several cards</h2>
-<p>Tap <strong>Manage cards</strong> to open <strong>My business cards</strong>.</p>
-<ul><li>Select a card to make it active.</li><li><strong>New blank card</strong> creates a blank card.</li><li><strong>Copy this card</strong> copies the selected card for a variation.</li><li><strong>Rename label</strong> changes its label in the card list, rather than the name printed on the card.</li><li><strong>Design and layout</strong> opens the selected card&#x27;s design settings.</li><li><strong>Home-screen widgets</strong> opens widget settings.</li></ul>
-<p>Card labels must contain 1–40 characters. There is no card-delete control in this version.</p>
+<p>Tap <strong>Settings → Manage cards</strong> to open <strong>My business cards</strong>.</p>
+<ul><li>Select a card to make it active.</li><li><strong>New blank card</strong> creates a blank card.</li><li><strong>Copy this card</strong> copies the selected card for a variation.</li><li><strong>Rename label</strong> changes its label in the card list. Labels must contain 1–40 characters.</li><li><strong>Design and layout</strong> opens the selected card’s design settings.</li><li><strong>Delete card</strong> removes the selected card after confirmation. Deleting the last card replaces it with a blank card.</li><li><strong>Home-screen widgets</strong> opens widget settings.</li></ul>
 <h2 id="change-the-design">Change the design</h2>
-<p>Open <strong>Edit → Design · background and layout</strong>. Preview a template before applying it. Design changes save automatically; check for any error before leaving.</p>
+<p>Open <strong>Settings → Edit your card → Design · background and layout</strong>. Preview a template before applying it. Design changes save automatically. Check for any error before leaving.</p>
 <p><strong>App background</strong> changes the colour around all cards and editing screens. Choose a preset or <strong>Custom colour</strong>, tap a swatch or the spectrum, then <strong>Apply</strong>. <strong>Hex colour</strong> accepts six-digit hex values such as <code>#245A78</code>.</p>
 <p><strong>Layout</strong> offers <strong>Portrait</strong> and <strong>Landscape</strong> card shapes. Selecting either shape, even the current one, resets moved elements. <strong>Reset layout</strong> restores the selected shape’s element positions and sizes without removing your details or images. Existing cards may show <strong>Custom</strong> until you choose a shape.</p>
 <p><strong>Font</strong> offers Sans, Serif and Mono. <strong>Text size</strong> offers Compact, Standard and Larger. Use <strong>Choose text colour</strong> and <strong>Choose accent colour</strong> to adjust the card. Business styles also offer <strong>Choose card colour</strong> and <strong>Use style colour</strong>. <strong>More card styles</strong> reveals the base styles; these are separate from the Portrait/Landscape shape controls.</p>
@@ -77,7 +86,7 @@ export default function CardBuddyGuide() {
 
 
 <h2 id="move-and-resize-artwork-elements">Move and resize artwork elements</h2>
-<p>Placement is available with a selected Portrait/Landscape card shape, enabled free QR positioning, background artwork, or a Business style. Open it from <strong>Edit</strong>, or tap <strong>Adjust placement</strong> in presentation.</p>
+<p>Placement is available with a selected Portrait/Landscape card shape, enabled free QR positioning, background artwork, or a Business style. Open it from <strong>Settings → Edit your card</strong>, or tap <strong>Adjust placement</strong> in presentation.</p>
 <p><strong>Placement · move QR</strong> is shown for Business styles; other styles show <strong>Placement · move details and QR</strong>. Drag the visible QR to move it. Where the details block and photo have editing handles, drag them to move them and use the corner handles to resize them.</p>
 <p>For current card shapes, use Design’s <strong>Show QR code</strong> switch and free positioning. <strong>No QR</strong>, <strong>QR left</strong> and <strong>QR right</strong> appear only for older custom artwork layouts without the newer shape/free-positioning controls.</p>
 <p>Tap <strong>Done</strong> when the arrangement looks right. Placement saves automatically. The QR cannot be resized, and elements can overlap, so check the result before sharing. Placement reset controls do not reset the full design. Position a separate logo through <strong>Design → Position logo</strong>.</p>
@@ -89,15 +98,16 @@ export default function CardBuddyGuide() {
 <p>For image or PDF, inspect the preview, tap <strong>Share</strong>, then select an app or recipient in Android&#x27;s chooser. Only the card is exported, without the editor controls or surrounding app background. Available save destinations depend on the apps installed on your phone.</p>
 <p>Tap <strong>Add to contacts ▾</strong> at the top of the enlarged QR view to switch between the contact QR and one of your additional links. The displayed QR updates to the selected destination. Use this large view when the card’s smaller QR is difficult to scan.</p>
 <h2 id="open-a-card-from-a-home-screen-widget">Open a card from a home-screen widget</h2>
-<ol><li>Open <strong>⋮ → Home-screen widgets</strong> and follow the instructions to add a widget.</li><li>Choose the card for that widget and tap <strong>Use this card</strong> when prompted.</li><li>Tap the widget to open its assigned card in presentation. Use widget settings to reassign an existing widget.</li></ol>
+<ol><li>Open <strong>Settings → Home-screen widgets</strong> and follow the instructions to add a widget.</li><li>Choose the card for that widget and tap <strong>Use this card</strong> when prompted.</li><li>Tap the widget to open its assigned card in presentation. Use widget settings to reassign an existing widget.</li></ol>
 <p>If your launcher does not support adding it from the app, long-press your home screen, choose <strong>Widgets</strong>, then find CardBuddy. Widget placement depends on your launcher.</p>
 <h2 id="reset-the-styling">Reset the styling</h2>
 <p>Open Design and tap <strong>Reset styling</strong>. Read and confirm the dialog.</p>
-<p>This restores the selected card&#x27;s default style, layout, accent, element sizes and positions; removes its artwork reference; disables the readable details panel; and resets the global app background to black. Contact details, links, the profile photo and logo are kept. Other cards keep their designs. This action does not delete the stored image files.</p>
+<p>This restores the selected card&#x27;s default style, layout, accent, element sizes and positions; removes its artwork reference; disables the readable details panel; and resets the global app background to ivory. Contact details, links, the profile photo and logo are kept. Other cards keep their designs. This action does not delete the stored image files.</p>
 <h2 id="storage-and-troubleshooting">Storage and troubleshooting</h2>
-<p>Card details and imported images are stored on your device. Choose <strong>Edit → Backup and restore → Save backup</strong> to save a ZIP backup. Use <strong>Restore backup</strong> and confirm <strong>Add cards</strong> to restore cards as copies. Existing cards and widgets are not replaced; the app background and active selection stay unchanged. There is no account sync. Backup files contain contact details and images and are not encrypted, so keep them private. PNG/PDF exports are shareable copies, not backups that can be imported to restore editable cards. Keep backups in a private location and retain your original images; Android system backup alone is not a verified recovery method.</p>
-<div className="guide-table"><table><thead><tr><th scope="col">Problem</th><th scope="col">Try this</th></tr></thead><tbody><tr><td>Details disappeared after editing</td><td>Tap Save and wait for completion; retry any save error. Check that the intended card is selected.</td></tr><tr><td>Placement option is absent</td><td>Choose a Portrait/Landscape shape in Design, enable free QR positioning where offered, or use artwork/a Business style.</td></tr><tr><td>Photo is missing</td><td>Check that a photo is saved and that the selected style shows photos.</td></tr><tr><td>Text blends into artwork</td><td>Choose a contrasting text colour or enable Text background/Readable details panel. Check Full-size preview.</td></tr><tr><td>Widget opens another card</td><td>Open ⋮ → Home-screen widgets and assign the intended card to that widget.</td></tr><tr><td>QR is hard to scan</td><td>Open Show contact QR or enlarge the selected link QR; avoid glare and ask the recipient to try again.</td></tr><tr><td>Export fails</td><td>Read the displayed error, check device storage and retry.</td></tr></tbody></table></div>
-          <p className="guide-updated">Updated 19 November 2026 · Checked against the 1.14-qa, build 16 source snapshot and active closed-test release. Screens can vary by device and saved card style.</p>
+<p>Open <strong>Settings → Edit your card → Backup and restore → Back up My cards</strong> to save your own cards, contact details and images. Collected cards, scans, private notes and follow-ups are excluded. Keep the unencrypted ZIP in a private location. To restore, choose <strong>Restore backup</strong>, select the file and confirm <strong>Add cards</strong>. CardBuddy adds copies and keeps your existing cards and widgets.</p>
+<p>Use the ZIP for restoring editable cards. PNG and PDF exports are designed for sharing.</p>
+<div className="guide-table"><table><thead><tr><th scope="col">Problem</th><th scope="col">Try this</th></tr></thead><tbody><tr><td>Details disappeared after editing</td><td>Tap Save and wait for completion; retry any save error. Check that the intended card is selected.</td></tr><tr><td>Placement option is absent</td><td>Choose a Portrait/Landscape shape in Design, enable free QR positioning where offered, or use artwork/a Business style.</td></tr><tr><td>Photo is missing</td><td>Check that a photo is saved and that the selected style shows photos.</td></tr><tr><td>Text blends into artwork</td><td>Choose a contrasting text colour or enable Text background/Readable details panel. Check Full-size preview.</td></tr><tr><td>Widget opens another card</td><td>Open Settings → Home-screen widgets and assign the intended card to that widget.</td></tr><tr><td>QR is hard to scan</td><td>Open Show contact QR or enlarge the selected link QR; avoid glare and ask the recipient to try again.</td></tr><tr><td>Export fails</td><td>Read the displayed error, check device storage and retry.</td></tr></tbody></table></div>
+          <p className="guide-updated">Updated 26 November 2026 · CardBuddy 1.15, build 17. Screens can vary by device and saved card style.</p>
           <a href="#guide-content">Back to top ↑</a>
         </main>
       </div>

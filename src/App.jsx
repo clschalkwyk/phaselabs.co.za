@@ -142,6 +142,7 @@ export default function App() {
             <p>Your business card, ready when the conversation starts. Create cards for different roles, make them your own with custom backgrounds, and share your details with a scannable QR code.</p>
             <ul className="cardbuddy-features">
               <li>Choose a layout and position your text and QR code.</li>
+              <li>Scan a printed business card, review the text on your phone and save it to Collected.</li>
               <li>Open your card instantly from a home-screen widget.</li>
               <li>Share a card as an image or PDF, including through WhatsApp.</li>
             </ul>
@@ -150,7 +151,7 @@ export default function App() {
               <p>Help us test CardBuddy through Google Play. Add your Google Play email to request access, then join the closed test once your email has been added and the test is available.</p>
               <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdqrfTO0l3C8P23hK_jlEWmedAw4yn2zRvaL6Ow5FL6Em2ZOw/viewform">Request tester access <span aria-hidden="true">↗</span></a>
               <p className="availability"><a href="https://play.google.com/apps/testing/co.za.phaselabs.cardbuddy">Join the closed test on Google Play ↗</a></p>
-              <p>Test version: updates may cause loss of saved cards or images. Use test data, keep copies of important details and images elsewhere, and do not uninstall or clear app storage to update.</p>
+              <p>Before updating, use <strong>Back up My cards</strong> if your installed version offers backup. Keep the ZIP private and save separate copies of important Collected cards, scans, notes and follow-ups. Update through Google Play with your current installation in place.</p>
             </section>
             <p className="availability"><a href={pagePaths.cardbuddyGuide}>Need a hand? Read the user guide ↗</a></p>
             <p className="availability"><a href="/assets/cardbuddy-privacy.html">CardBuddy privacy policy ↗</a></p>
@@ -170,15 +171,16 @@ export default function App() {
           <div>
             <p className="eyebrow">CardBuddy documentation</p>
             <h2 id="cardbuddy-docs-title">Make it yours.<br /><span>Keep it ready.</span></h2>
-            <p>Follow the guide to create cards, choose a design, position your details, share a QR code and add a home-screen widget.</p>
+            <p>Follow the guide to create and share cards, collect printed cards and plan follow-ups.</p>
             <a className="button" href={pagePaths.cardbuddyGuide}>Read the CardBuddy guide <span aria-hidden="true">↗</span></a>
-            <p className="availability">Step-by-step instructions · Guide for version 1.13</p>
+            <p className="availability">Guide for version 1.15 · Build 17</p>
           </div>
           <ul aria-label="Topics covered in the CardBuddy guide">
             <li>Details, photos and multiple cards</li>
             <li>Layouts, colours and background artwork</li>
             <li>QR codes, image and PDF sharing</li>
-            <li>Widgets, styling reset and troubleshooting</li>
+            <li>Printed-card scanning and follow-ups</li>
+            <li>Widgets, backup and troubleshooting</li>
           </ul>
         </section>
 

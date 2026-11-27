@@ -26,10 +26,10 @@ before(async () => {
 
 after(async () => { await server?.close(); });
 
-test('the lab overview presents all four projects with clear development status', () => {
+test('the lab overview presents all five projects with clear development status', () => {
   assert.ok(lab, 'The homepage includes a From the lab section');
   assert.match(lab, /<h2 id="lab-title">From the lab<\/h2>/);
-  assert.equal((lab.match(/<article /g) || []).length, 4);
+  assert.equal((lab.match(/<article /g) || []).length, 5);
   assert.match(lab, /Closed testing[\s\S]*<h3 id="lab-cardbuddy-title">CardBuddy<\/h3>/);
   assert.match(lab, /In development[\s\S]*<h3 id="lab-stat60-title">STAT-60<\/h3>/);
   assert.match(lab, /Exploring clearer handoffs from antimicrobial prescribing through pharmacy to bedside administration\. STAT-60 focuses on task ownership, workflow visibility and traceable records\./);
@@ -41,6 +41,7 @@ test('the overview reuses CardBuddy details without duplicate signup or invented
     '/assets/trucktime.html',
     '#cardbuddy',
     '/assets/sambane.html',
+    'https://communityboard.co.za/',
   ]);
   assert.equal((home.match(/id="cardbuddy"/g) || []).length, 1);
   assert.equal((home.match(/>Request tester access /g) || []).length, 1);
@@ -64,4 +65,14 @@ test('Sambane replaces the old project with the focused procurement direction', 
   assert.match(sambane, /href="\/assets\/sambane\.html"/);
   assert.doesNotMatch(sambane, /<img\b|<svg\b/, 'No concept or third-party brand assets are presented as finalized artwork');
   assert.doesNotMatch(home, /Agent[ -]K|lab-agent-k-title|discover raw data, model outputs and research/i);
+});
+
+test('CommunityBoard is marked in development and links to the public site', () => {
+  const cards = [...lab.matchAll(/<article[^>]+aria-labelledby="lab-communityboard-title"[^>]*>([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length, 1);
+  const card = cards[0][1];
+  assert.match(card, /In development/);
+  assert.match(card, /<h3 id="lab-communityboard-title">CommunityBoard<\/h3>/);
+  assert.match(card, /href="https:\/\/communityboard\.co\.za\/"/);
+  assert.doesNotMatch(card, /staging|up\.railway\.app/i);
 });

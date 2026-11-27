@@ -133,6 +133,13 @@ export default function App() {
               <p className="availability">In development. Earlier supplier data was simulated and logistics used a sandbox. Live supplier follow-up and real-world fulfilment remain to be validated.</p>
               <a className="button" href={pagePaths.sambane}>Explore Sambane <span aria-hidden="true">↗</span></a>
             </article>
+            <article className="question-card lab-project" aria-labelledby="lab-communityboard-title">
+              <span className="number">In development</span>
+              <h3 id="lab-communityboard-title">CommunityBoard</h3>
+              <p><strong>A searchable home for the useful answers your neighbourhood keeps repeating on WhatsApp.</strong></p>
+              <p>We’re building a place for South African neighbours to find recommended local services, useful contacts and community rules, then share the answer back to the group.</p>
+              <a className="button" href="https://communityboard.co.za/">Explore CommunityBoard <span aria-hidden="true">↗</span></a>
+            </article>
           </div>
         </section>
 
